@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmhqu78ijk2qe"]
+
+[ext_resource type="Texture2D" uid="uid://dqtet1q7svwap" path="res://assets/Tech Dungeon Roguelite - Asset Pack (v7)/Players/players green x2.png" id="1_yi5q6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fu0t6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_yi5q6")
+}],
+"loop": true,
+"name": &"test",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2jt7s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5wuas"]
+
+[node name="player" type="CharacterBody2D"]
+
+[node name="anim" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_fu0t6")
+animation = &"test"
+
+[node name="collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_2jt7s")
+
+[node name="hurtbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
+shape = SubResource("RectangleShape2D_5wuas")
+
+[node name="camera" type="Camera2D" parent="."]
+
+[node name="user interface" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="hud" type="CanvasLayer" parent="user interface"]
+
+[node name="hud" type="Control" parent="user interface/hud"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="pause" type="CanvasLayer" parent="user interface"]
+
+[node name="pause" type="Control" parent="user interface/pause"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
