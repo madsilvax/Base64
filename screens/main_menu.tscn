@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://dmmgoyduccs56"]
+[gd_scene load_steps=2 format=3 uid="uid://dmmgoyduccs56"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_a0e2s"]
 
 [node name="main_menu" type="Control"]
 layout_mode = 3
@@ -9,6 +11,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+script = ExtResource("1_a0e2s")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
