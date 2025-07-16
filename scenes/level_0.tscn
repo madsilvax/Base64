@@ -1,9 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://dheqygifoinl1"]
+[gd_scene load_steps=4 format=3 uid="uid://dheqygifoinl1"]
 
+[ext_resource type="Script" path="res://scripts/level_0.gd" id="1_debah"]
 [ext_resource type="PackedScene" uid="uid://dmhqu78ijk2qe" path="res://characters/player.tscn" id="1_t1tgu"]
+[ext_resource type="PackedScene" uid="uid://c1n025y2h1d80" path="res://screens/PauseMenu.tscn" id="3_tgf1c"]
 
 [node name="level_0" type="Node2D"]
+script = ExtResource("1_debah")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 
 [node name="player" parent="TileMapLayer" instance=ExtResource("1_t1tgu")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("3_tgf1c")]

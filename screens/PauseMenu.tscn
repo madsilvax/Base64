@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://c1n025y2h1d80"]
+[gd_scene load_steps=2 format=3 uid="uid://c1n025y2h1d80"]
+
+[ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_i3pph"]
 
 [node name="PauseMenu" type="Control"]
 layout_mode = 3
@@ -7,8 +9,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_i3pph")
 
 [node name="PauseLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="PauseLayer"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.43, 0, 0.157667, 0.415686)
 
 [node name="Panel" type="Panel" parent="PauseLayer"]
 offset_right = 1921.0
@@ -48,8 +56,5 @@ offset_bottom = 855.0
 mouse_default_cursor_shape = 2
 text = "SAIR"
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
-color = Color(0.43, 0, 0.157667, 0.415686)
+[connection signal="pressed" from="PauseLayer/continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="PauseLayer/quit" to="." method="_on_quit_pressed"]
