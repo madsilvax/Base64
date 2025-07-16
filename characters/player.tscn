@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dmhqu78ijk2qe"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_jn3sm"]
-[ext_resource type="Texture2D" uid="uid://dqtet1q7svwap" path="res://assets/Tech Dungeon Roguelite - Asset Pack (v7)/Players/players green x2.png" id="1_yi5q6"]
+[ext_resource type="Texture2D" uid="uid://dqtet1q7svwap" path="res://assets/characters/Player/Players/players green x2.png" id="1_yi5q6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fu0t6"]
 animations = [{
