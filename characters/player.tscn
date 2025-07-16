@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://dmhqu78ijk2qe"]
+[gd_scene load_steps=6 format=3 uid="uid://dmhqu78ijk2qe"]
 
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_jn3sm"]
 [ext_resource type="Texture2D" uid="uid://dqtet1q7svwap" path="res://assets/Tech Dungeon Roguelite - Asset Pack (v7)/Players/players green x2.png" id="1_yi5q6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fu0t6"]
@@ -18,6 +19,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5wuas"]
 
 [node name="player" type="CharacterBody2D"]
+script = ExtResource("1_jn3sm")
 
 [node name="anim" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_fu0t6")
@@ -56,3 +58,8 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="area_exited" from="hurtbox" to="." method="_on_hurtbox_area_exited"]
+[connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]
+[connection signal="body_exited" from="hurtbox" to="." method="_on_hurtbox_body_exited"]
