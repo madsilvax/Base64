@@ -34,10 +34,17 @@ grow_vertical = 2
 
 [node name="iniciar" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 text = "iniciar"
 
 [node name="sair" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "configurações"
+
+[node name="sair2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
 text = "sair"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
