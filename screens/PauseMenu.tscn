@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://c1n025y2h1d80"]
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PauseLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="PauseLayer"]
+offset_right = 1921.0
+offset_bottom = 1081.0
+
+[node name="Titulopaused" type="Label" parent="PauseLayer"]
+offset_left = 789.0
+offset_top = 211.0
+offset_right = 1121.0
+offset_bottom = 337.0
+theme_override_font_sizes/font_size = 33
+text = "Pausado"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="continue" type="Button" parent="PauseLayer"]
+offset_left = 767.0
+offset_top = 464.0
+offset_right = 1147.0
+offset_bottom = 566.0
+mouse_default_cursor_shape = 2
+text = "CONTINUAR"
+
+[node name="options" type="Button" parent="PauseLayer"]
+offset_left = 769.0
+offset_top = 612.0
+offset_right = 1150.0
+offset_bottom = 721.0
+mouse_default_cursor_shape = 2
+text = "OPCOES"
+
+[node name="quit" type="Button" parent="PauseLayer"]
+offset_left = 776.0
+offset_top = 763.0
+offset_right = 1149.0
+offset_bottom = 855.0
+mouse_default_cursor_shape = 2
+text = "SAIR"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.43, 0, 0.157667, 0.415686)
