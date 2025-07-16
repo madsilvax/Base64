@@ -40,14 +40,17 @@ layout_mode = 2
 mouse_default_cursor_shape = 2
 text = "iniciar"
 
-[node name="sair" type="Button" parent="VBoxContainer"]
+[node name="config" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 text = "configurações"
 
-[node name="sair2" type="Button" parent="VBoxContainer"]
+[node name="sair" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 text = "sair"
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="Menu ost" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="pressed" from="VBoxContainer/iniciar" to="." method="_on_iniciar_pressed"]
+[connection signal="pressed" from="VBoxContainer/sair" to="." method="_on_sair_pressed"]
