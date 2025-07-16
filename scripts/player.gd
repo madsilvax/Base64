@@ -2,10 +2,10 @@ extends CharacterBody2D
 class_name Player
 
 @export var speed = 100.0
-
 @onready var camera_2d = $camera
-
 @onready var animated_sprite_2d: AnimatedSprite2D = $anim
+@export var camera_shake_intensity: float = 0.3
+@onready var camera = $camera
 
 var can_interact = true
 var idle_direcao = ""
@@ -36,6 +36,17 @@ func _physics_process(delta: float) -> void:
 		animated_sprite_2d.play(idle_direcao)
 	
 	move_and_slide()
+	
+	# Exemplo: detecta inimigos em um grupo "enemies" numa área 2D
+	var enemies_nearby = $DetectionArea.get_overlappisng_bodies().filter(
+		func(body): return body.is_in_group("enemies")
+	)
+		
+	if enemies_nearby.size() > 0:
+		camera.apply_shake(camera_shake_intensity * delta)
+	else:
+		camera.apply_shake(0)  # Para interromper gradualmente
+	
 	
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("interact") and can_interact and can_be_played:
