@@ -152,8 +152,8 @@ func recarregar():
 	
 
 func _input(event):
-	if event.is_action_just_pressed("pausar"):
-		get_tree().paused = not get_tree().paused
+	if event.is_action_just_pressed("pause"):
+		get_tree().paused = not get_tree().pause
 		# Mostrar/esconder menu de pause aqui
 
 # Funções de área (colisões)
