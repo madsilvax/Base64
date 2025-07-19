@@ -15,22 +15,21 @@ func _ready():
 	tween.tween_property(menu_ost, "volume_db", -5, 4.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 
 func _on_iniciar_pressed():
-	# Evita múltiplos cliques durante a transição
 	if is_transitioning:
 		return
 	is_transitioning = true
 	
 	var fade_out_tween := create_tween()
-	fade_out_tween.tween_property(menu_ost, "volume_db", -0.0, 2.0) \
+	fade_out_tween.tween_property(menu_ost, "volume_db", -40.0, 2.0) \
 		.set_trans(Tween.TRANS_SINE) \
 		.set_ease(Tween.EASE_IN_OUT)
-		
-	get_tree().quit()
+	
+	# Emite o sinal para mudar para level_0.tscn
+	change_scene.emit("res://scenes/level_0.tscn") 
+	get_tree().change_scene_to_file("res://scenes/level_0.tscn")
+
 	
 func _on_sair_pressed() -> void:
 	# Fade out da música antes de sair
