@@ -34,40 +34,45 @@ var invencivel: bool = false
 signal interagir(dono)
 
 func _physics_process(delta: float) -> void:
-	esta_correndo = Input.is_action_pressed("correr")
+	# Verifica todos os inputs de correr
+	esta_correndo = (
+		Input.is_action_pressed("correr_direita")
+		or Input.is_action_pressed("correr_esquerda")
+		or Input.is_action_pressed("correr_cima")
+		or Input.is_action_pressed("correr_baixo")
+	)
 	
+	# Pega direção baseada nos inputs
 	var direcao: Vector2 = Input.get_vector("andar_esquerda", "andar_direita", "andar_cima", "andar_baixo")
 	var velocidade_atual = velocidade * (multiplicador_corrida if esta_correndo else 1.0)
-	
-	if direcao and pode_se_mover:
-		velocity = direcao * velocidade_atual
+
+	if direcao != Vector2.ZERO and pode_se_mover:
+		velocity = direcao.normalized() * velocidade_atual
 		
-		if direcao.x > 0:
-			sprite_animado.play("correr_direita" if esta_correndo else "andar_direita")
-			animacao_parado = "parado_direita"
-		elif direcao.x < 0:
-			sprite_animado.play("correr_esquerda" if esta_correndo else "andar_esquerda")
-			animacao_parado = "parado_esquerda"
-		elif direcao.y < 0:
-			sprite_animado.play("correr_cima" if esta_correndo else "andar_cima")
-			animacao_parado = "parado_cima"
-		elif direcao.y > 0:
-			sprite_animado.play("correr_baixo" if esta_correndo else "andar_baixo")
-			animacao_parado = "parado_baixo"
+		# Sempre toca a mesma animação
+		sprite_animado.play("run") 
+
+		# Inverte horizontalmente se for para a esquerda
+		if direcao.x < 0:
+			sprite_animado.flip_h = true
+		elif direcao.x > 0:
+			sprite_animado.flip_h = false
+
 	else:
 		velocity = Vector2.ZERO
-		sprite_animado.play(animacao_parado)
-	
+		# Para quando parado 
+		sprite_animado.play("padrao_baixo")
+		
 	move_and_slide()
 	
-	# Verificação segura de inimigos próximos
-	var inimigos_proximos = []
-	if area_detecao:
-		inimigos_proximos = area_detecao.get_overlapping_bodies().filter(
-			func(corpo): return corpo.is_in_group("inimigos")
-		)
-	
-	if inimigos_proximos.size() > 0:
-		camera.aplicar_tremor(intensidade_tremer_camera * delta)
-	else:
-		camera.aplicar_tremor(0)
+	## Verificação segura de inimigos próximos
+	#var inimigos_proximos = []
+	#if area_detecao:
+		#inimigos_proximos = area_detecao.get_overlapping_bodies().filter(
+			#func(corpo): return corpo.is_in_group("inimigos")
+		#)
+	#
+	#if inimigos_proximos.size() > 0:
+		#camera.aplicar_tremor(intensidade_tremer_camera * delta)
+	#else:
+		#camera.aplicar_tremor(0)

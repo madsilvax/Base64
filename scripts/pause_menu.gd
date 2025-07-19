@@ -1,33 +1,28 @@
 extends Control
 
-@onready var continue_button = $ContinueButton
-@onready var quit_button = $QuitButton
+func resume():
+	get_tree().paused = false
+	$AnimationPlayer.play_backwards("blur")
 
-func _ready():
-	hide()
-	process_mode = Node.PROCESS_MODE_ALWAYS
+func pause():
+	get_tree().paused = true
+	$AnimationPlayer.play("blur")
 	
-	# Conecta os botões
-	continue_button.pressed.connect(_on_continue_pressed)
-	quit_button.pressed.connect(_on_quit_pressed)
-
-func _input(event):
-	if event.is_action_pressed("pause"):
-		toggle_pause()
-
-func toggle_pause():
-	var paused = !get_tree().paused
-	get_tree().paused = paused
-	
-	if paused:
-		show()
-		continue_button.grab_focus()  # Foca no botão de continuar
-	else:
-		hide()
+func testEsc():
+	if Input.is_action_just_pressed("esc") and !get_tree().paused:
+		pause()
+	elif Input.is_action_just_pressed("esc") and get_tree().paused:
+		resume()
 
 func _on_continue_pressed():
-	toggle_pause()
+	resume()
+
+func _on_restart_pressed():
+	resume()
+	get_tree().reload_current_scene()
 
 func _on_quit_pressed():
-	get_tree().paused = false
-	get_tree().change_scene_to_file("res://screens/main_menu.tscn")  # Ajuste para sua cena de menu
+	get_tree().change_scene_to_file("res://screens/main_menu.tscn")
+	
+func _process(delta):
+	testEsc()

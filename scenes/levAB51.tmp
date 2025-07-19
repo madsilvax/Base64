@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dheqygifoinl1"]
+[gd_scene load_steps=8 format=3 uid="uid://dheqygifoinl1"]
 
 [ext_resource type="Script" path="res://scripts/level_0.gd" id="1_debah"]
 [ext_resource type="PackedScene" uid="uid://dmhqu78ijk2qe" path="res://characters/player.tscn" id="1_t1tgu"]
 [ext_resource type="Texture2D" uid="uid://dtdwc3sjjk556" path="res://assets/floor and walls/tileset x2.png" id="2_mvx24"]
 [ext_resource type="PackedScene" uid="uid://c1n025y2h1d80" path="res://screens/PauseMenu.tscn" id="3_tgf1c"]
+[ext_resource type="PackedScene" uid="uid://c80cos24bdo0m" path="res://gameplay/gameplay.tscn" id="5_02lx4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gpb8b"]
 texture = ExtResource("2_mvx24")
@@ -2141,6 +2142,6 @@ tile_set = SubResource("TileSet_ah228")
 
 [node name="player" parent="TileMapLayer" instance=ExtResource("1_t1tgu")]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="PauseMenu" parent="." instance=ExtResource("3_tgf1c")]
 
-[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("3_tgf1c")]
+[node name="Gameplay" parent="." instance=ExtResource("5_02lx4")]
