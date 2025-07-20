@@ -1,0 +1,17 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://f7e0gm4035bk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jnp2e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b3n1m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ixgpa"]
+
+[resource]
+Button/font_sizes/font_size = 48
+Button/styles/normal = SubResource("StyleBoxFlat_jnp2e")
+HBoxContainer/constants/separation = 16
+HSeparator/constants/separation = 0
+HSeparator/styles/separator = SubResource("StyleBoxEmpty_b3n1m")
+VBoxContainer/constants/separation = 16
+VSeparator/constants/separation = 0
+VSeparator/styles/separator = SubResource("StyleBoxEmpty_ixgpa")

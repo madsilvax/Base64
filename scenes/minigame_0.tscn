@@ -1,0 +1,152 @@
+[gd_scene load_steps=19 format=3 uid="uid://ddytaa7ykqfhh"]
+
+[ext_resource type="Theme" uid="uid://f7e0gm4035bk" path="res://themes/minigame.tres" id="1_i7ex5"]
+[ext_resource type="Texture2D" uid="uid://eniwgp637mpv" path="res://assets/minigame/padlock/background.png" id="2_lmk0t"]
+[ext_resource type="Texture2D" path="res://assets/minigame/padlock/Ativo 2.png" id="2_n2swk"]
+[ext_resource type="Texture2D" uid="uid://c66xorm5hies8" path="res://assets/minigame/padlock/num1.png" id="3_4ao8j"]
+[ext_resource type="Texture2D" uid="uid://b3oeskir742nq" path="res://assets/minigame/padlock/num2.png" id="4_8516j"]
+[ext_resource type="Texture2D" uid="uid://b4tj8ep6ikbw3" path="res://assets/minigame/padlock/num3.png" id="5_rmq2q"]
+[ext_resource type="Texture2D" uid="uid://dudd5mvinypxw" path="res://assets/minigame/padlock/num4.png" id="6_sysai"]
+[ext_resource type="Texture2D" uid="uid://dbd4vluhvcgbb" path="res://assets/minigame/padlock/num5.png" id="7_8fg4g"]
+[ext_resource type="Texture2D" uid="uid://458h7m387fm2" path="res://assets/minigame/padlock/num6.png" id="8_2n4yr"]
+[ext_resource type="Texture2D" uid="uid://cblaadvvy5u1q" path="res://assets/minigame/padlock/num7.png" id="9_l8g6g"]
+[ext_resource type="Texture2D" uid="uid://b7o2raclmcfl2" path="res://assets/minigame/padlock/num8.png" id="10_twsgw"]
+[ext_resource type="Texture2D" uid="uid://cjsp4t805effx" path="res://assets/minigame/padlock/num9.png" id="11_yvmfs"]
+[ext_resource type="Texture2D" uid="uid://ctliaype4q2l5" path="res://assets/minigame/padlock/num0.png" id="12_noyhc"]
+
+[sub_resource type="Theme" id="Theme_8hnu2"]
+
+[sub_resource type="Theme" id="Theme_gpbw7"]
+
+[sub_resource type="Theme" id="Theme_b8130"]
+
+[sub_resource type="Theme" id="Theme_fikqp"]
+
+[sub_resource type="Theme" id="Theme_sa1gx"]
+
+[node name="minigame_0" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_i7ex5")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.666667)
+
+[node name="padlock" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -562.0
+offset_top = -309.0
+offset_right = -50.0
+offset_bottom = 309.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("2_lmk0t")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="padlock"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -240.0
+offset_right = 192.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_i7ex5")
+
+[node name="screen" type="TextureRect" parent="padlock/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_n2swk")
+
+[node name="HSeparator" type="HSeparator" parent="padlock/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_i7ex5")
+
+[node name="Buttons123" type="HBoxContainer" parent="padlock/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_i7ex5")
+
+[node name="Button1" type="Button" parent="padlock/VBoxContainer/Buttons123"]
+layout_mode = 2
+theme = ExtResource("1_i7ex5")
+icon = ExtResource("3_4ao8j")
+
+[node name="Button2" type="Button" parent="padlock/VBoxContainer/Buttons123"]
+layout_mode = 2
+theme = SubResource("Theme_8hnu2")
+icon = ExtResource("4_8516j")
+
+[node name="Button3" type="Button" parent="padlock/VBoxContainer/Buttons123"]
+layout_mode = 2
+theme = SubResource("Theme_gpbw7")
+icon = ExtResource("5_rmq2q")
+
+[node name="Buttons456" type="HBoxContainer" parent="padlock/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_b8130")
+
+[node name="Button4" type="Button" parent="padlock/VBoxContainer/Buttons456"]
+layout_mode = 2
+icon = ExtResource("6_sysai")
+
+[node name="Button5" type="Button" parent="padlock/VBoxContainer/Buttons456"]
+layout_mode = 2
+icon = ExtResource("7_8fg4g")
+
+[node name="Button6" type="Button" parent="padlock/VBoxContainer/Buttons456"]
+layout_mode = 2
+icon = ExtResource("8_2n4yr")
+
+[node name="Buttons789" type="HBoxContainer" parent="padlock/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_fikqp")
+
+[node name="Button7" type="Button" parent="padlock/VBoxContainer/Buttons789"]
+layout_mode = 2
+icon = ExtResource("9_l8g6g")
+
+[node name="Button8" type="Button" parent="padlock/VBoxContainer/Buttons789"]
+layout_mode = 2
+icon = ExtResource("10_twsgw")
+
+[node name="Button9" type="Button" parent="padlock/VBoxContainer/Buttons789"]
+layout_mode = 2
+icon = ExtResource("11_yvmfs")
+
+[node name="Buttons0" type="HBoxContainer" parent="padlock/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_sa1gx")
+
+[node name="Button0" type="Button" parent="padlock/VBoxContainer/Buttons0"]
+layout_mode = 2
+icon = ExtResource("12_noyhc")
