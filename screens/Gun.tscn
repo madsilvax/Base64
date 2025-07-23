@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://bifxlko062c2r"]
+
+[ext_resource type="Texture2D" uid="uid://dr4ipent5khtw" path="res://assets/Projectiles/projectiles x2.png" id="1_xfc4u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dd42r"]
+atlas = ExtResource("1_xfc4u")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbyg6"]
+atlas = ExtResource("1_xfc4u")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_owvy6"]
+atlas = ExtResource("1_xfc4u")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ah7qg"]
+atlas = ExtResource("1_xfc4u")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_11dgi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dd42r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hbyg6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_owvy6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ah7qg")
+}],
+"loop": true,
+"name": &"projetil",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fodpl"]
+size = Vector2(20, 6)
+
+[node name="Gun" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+sprite_frames = SubResource("SpriteFrames_11dgi")
+animation = &"projetil"
+frame = 3
+frame_progress = 0.342258
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_fodpl")
+
+[node name="Node2D" type="Node2D" parent="CharacterBody2D"]
