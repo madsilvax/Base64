@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Base #64"
+config/name="Takedown Techno"
 run/main_scene="res://screens/main_menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
@@ -21,6 +21,10 @@ config/icon="res://icon.svg"
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/size/mode=3
+
+[global_group]
+
+camera=""
 
 [input]
 

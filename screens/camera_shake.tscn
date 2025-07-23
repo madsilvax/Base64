@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwkwfagpg7iw4"]
+
+[ext_resource type="Script" path="res://scripts/camera_shake.gd" id="1_ftbie"]
+
+[node name="Node" type="Camera2D" groups=["camera"]]
+script = ExtResource("1_ftbie")

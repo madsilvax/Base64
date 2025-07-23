@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dmhqu78ijk2qe"]
+[gd_scene load_steps=37 format=3 uid="uid://dmhqu78ijk2qe"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_jn3sm"]
 [ext_resource type="Texture2D" uid="uid://dqtet1q7svwap" path="res://assets/characters/Player/Players/players green x2.png" id="1_yi5q6"]
@@ -6,6 +6,7 @@
 [ext_resource type="Theme" uid="uid://dqd1rercjqtpw" path="res://themes/ui_player.tres" id="4_5724h"]
 [ext_resource type="Shader" path="res://assets/UI/PauseMenu.gdshader" id="4_f2ig3"]
 [ext_resource type="Script" path="res://scripts/ui_player.gd" id="4_kri8k"]
+[ext_resource type="AudioStream" uid="uid://byrksw8y8xkk4" path="res://assets/sounds/sfx/arma_laser_atira.mp3" id="7_7o1cv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_avh8l"]
 atlas = ExtResource("1_yi5q6")
@@ -346,6 +347,7 @@ script = ExtResource("1_jn3sm")
 position = Vector2(0, -14)
 sprite_frames = SubResource("SpriteFrames_fu0t6")
 animation = &"padrao_baixo"
+frame_progress = 0.727376
 
 [node name="collision" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_2jt7s")
@@ -446,10 +448,10 @@ layout_mode = 2
 mouse_default_cursor_shape = 2
 text = "Recomeçar nível"
 
-[node name="options" type="Button" parent="UI player/UI layer/pause/VBoxContainer"]
+[node name="controles" type="Button" parent="UI player/UI layer/pause/VBoxContainer"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
-text = "Opções"
+text = "Controles"
 
 [node name="quit" type="Button" parent="UI player/UI layer/pause/VBoxContainer"]
 layout_mode = 2
@@ -464,6 +466,8 @@ libraries = {
 [node name="sfx_recarregar" type="AudioStreamPlayer2D" parent="."]
 
 [node name="sfx_atirar" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_7o1cv")
+volume_db = -12.876
 
 [node name="sfx_dano" type="AudioStreamPlayer2D" parent="."]
 
@@ -473,5 +477,5 @@ libraries = {
 [connection signal="body_exited" from="hurtbox" to="." method="_on_hurtbox_body_exited"]
 [connection signal="pressed" from="UI player/UI layer/pause/VBoxContainer/continue" to="UI player" method="_on_continue_pressed"]
 [connection signal="pressed" from="UI player/UI layer/pause/VBoxContainer/restart" to="UI player" method="_on_restart_pressed"]
-[connection signal="pressed" from="UI player/UI layer/pause/VBoxContainer/options" to="UI player" method="_on_options_pressed"]
+[connection signal="pressed" from="UI player/UI layer/pause/VBoxContainer/controles" to="UI player" method="_on_options_pressed"]
 [connection signal="pressed" from="UI player/UI layer/pause/VBoxContainer/quit" to="UI player" method="_on_quit_pressed"]

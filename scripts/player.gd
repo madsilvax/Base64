@@ -7,9 +7,11 @@ class_name Player
 @onready var camera = $camera
 @onready var sprite_animado: AnimatedSprite2D = $anim
 @export var intensidade_tremer_camera: float = 0.3
+@onready var area_detecao: Area2D = $AreaDetecao
+
+# Sons
 @onready var recarregando_sfx: AudioStreamPlayer2D = $sfx_recarregar
 @onready var atirando: AudioStreamPlayer2D = $sfx_atirar
-@onready var area_detecao: Area2D = $AreaDetecao
 @onready var dano_sfx: AudioStreamPlayer2D = $sfx_dano
 
 # Variáveis de controle
@@ -65,14 +67,17 @@ func _physics_process(delta: float) -> void:
 		
 	move_and_slide()
 	
-	## Verificação segura de inimigos próximos
-	#var inimigos_proximos = []
-	#if area_detecao:
-		#inimigos_proximos = area_detecao.get_overlapping_bodies().filter(
-			#func(corpo): return corpo.is_in_group("inimigos")
-		#)
-	#
-	#if inimigos_proximos.size() > 0:
-		#camera.aplicar_tremor(intensidade_tremer_camera * delta)
-	#else:
-		#camera.aplicar_tremor(0)
+	if Input.is_action_just_pressed("atirar"):
+		shoot()
+	
+	if Input.is_action_just_pressed("recarregar"):
+		reload()
+		
+
+func shoot():
+	sprite_animado.play("atirando")
+	atirando.play()
+	
+func reload():
+	sprite_animado.play("reload")
+	recarregando_sfx.play()
