@@ -306,6 +306,7 @@ theme = ExtResource("4_5724h")
 
 [node name="pause" type="Control" parent="UI player/UI layer"]
 process_mode = 3
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

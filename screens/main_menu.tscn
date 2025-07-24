@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dmmgoyduccs56"]
+[gd_scene load_steps=5 format=3 uid="uid://dmmgoyduccs56"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_a0e2s"]
 [ext_resource type="Texture2D" uid="uid://cddgdrlc8ym1u" path="res://assets/UI/Menu/16.png" id="2_c0ieu"]
 [ext_resource type="Texture2D" uid="uid://ufbjjp12lil1" path="res://assets/UI/Menu/8.png" id="3_6ysf2"]
+[ext_resource type="VideoStream" path="res://assets/UI/Menu/MENU-SEM-BOTOES.ogv" id="4_q3y65"]
 
 [node name="main_menu" type="Control"]
 layout_mode = 3
@@ -52,6 +53,17 @@ offset_bottom = 810.25
 mouse_default_cursor_shape = 2
 
 [node name="Menu ost" type="AudioStreamPlayer2D" parent="."]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("4_q3y65")
+autoplay = true
+loop = true
 
 [connection signal="pressed" from="TextureRect/Botôes/iniciar" to="." method="_on_iniciar_pressed"]
 [connection signal="pressed" from="TextureRect/Botôes/sair" to="." method="_on_sair_pressed"]
