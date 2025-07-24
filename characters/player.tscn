@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://dmhqu78ijk2qe"]
+[gd_scene load_steps=38 format=3 uid="uid://dmhqu78ijk2qe"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_jn3sm"]
 [ext_resource type="Texture2D" uid="uid://dqtet1q7svwap" path="res://assets/characters/Player/Players/players green x2.png" id="1_yi5q6"]
@@ -7,6 +7,7 @@
 [ext_resource type="Shader" path="res://assets/UI/PauseMenu.gdshader" id="4_f2ig3"]
 [ext_resource type="Script" path="res://scripts/ui_player.gd" id="4_kri8k"]
 [ext_resource type="AudioStream" uid="uid://byrksw8y8xkk4" path="res://assets/sounds/sfx/arma_laser_atira.mp3" id="7_7o1cv"]
+[ext_resource type="Texture2D" uid="uid://brayhtvnqk77v" path="res://assets/UI/Menu/5.png" id="7_21epw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_avh8l"]
 atlas = ExtResource("1_yi5q6")
@@ -187,12 +188,6 @@ size = Vector2(25, 26)
 shader = ExtResource("4_f2ig3")
 shader_parameter/lod = 0.8
 
-[sub_resource type="InputEventKey" id="InputEventKey_h5c1w"]
-keycode = 4194305
-
-[sub_resource type="Shortcut" id="Shortcut_oah30"]
-events = [SubResource("InputEventKey_h5c1w")]
-
 [sub_resource type="Animation" id="Animation_yk4xh"]
 length = 0.001
 tracks/0/type = "value"
@@ -340,6 +335,12 @@ _data = {
 "blur": SubResource("Animation_cwgyy")
 }
 
+[sub_resource type="InputEventKey" id="InputEventKey_h5c1w"]
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_oah30"]
+events = [SubResource("InputEventKey_h5c1w")]
+
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_jn3sm")
 
@@ -390,7 +391,6 @@ theme = ExtResource("4_5724h")
 
 [node name="pause" type="Control" parent="UI player/UI layer"]
 process_mode = 3
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -418,51 +418,59 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI player/UI layer/pause"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -190.0
-offset_top = -158.0
-offset_right = 190.0
-offset_bottom = 158.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="paused" type="Label" parent="UI player/UI layer/pause/VBoxContainer"]
-layout_mode = 2
-text = "Pausado"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="continue" type="Button" parent="UI player/UI layer/pause/VBoxContainer"]
-layout_mode = 2
-mouse_default_cursor_shape = 2
-shortcut = SubResource("Shortcut_oah30")
-text = "Continuar"
-
-[node name="restart" type="Button" parent="UI player/UI layer/pause/VBoxContainer"]
-layout_mode = 2
-mouse_default_cursor_shape = 2
-text = "Recomeçar nível"
-
-[node name="controles" type="Button" parent="UI player/UI layer/pause/VBoxContainer"]
-layout_mode = 2
-mouse_default_cursor_shape = 2
-text = "Controles"
-
-[node name="quit" type="Button" parent="UI player/UI layer/pause/VBoxContainer"]
-layout_mode = 2
-mouse_default_cursor_shape = 2
-text = "Sair pro menu"
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI player/UI layer/pause"]
 libraries = {
 "": SubResource("AnimationLibrary_dgyao")
 }
+
+[node name="continue_sprite" type="Sprite2D" parent="UI player/UI layer/pause"]
+position = Vector2(959, 621)
+scale = Vector2(0.1615, 0.1615)
+texture = ExtResource("7_21epw")
+
+[node name="continue" type="Button" parent="UI player/UI layer/pause"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+offset_left = 770.0
+offset_top = 594.0
+offset_right = 1150.0
+offset_bottom = 661.0
+mouse_default_cursor_shape = 2
+shortcut = SubResource("Shortcut_oah30")
+text = "continuar"
+
+[node name="restart_sprite" type="Sprite2D" parent="UI player/UI layer/pause"]
+position = Vector2(770, 594)
+
+[node name="restart" type="Button" parent="UI player/UI layer/pause"]
+layout_mode = 2
+offset_left = 770.0
+offset_top = 677.0
+offset_right = 1150.0
+offset_bottom = 744.0
+mouse_default_cursor_shape = 2
+text = "Recomeçar nível"
+
+[node name="controles" type="Button" parent="UI player/UI layer/pause"]
+layout_mode = 2
+offset_left = 770.0
+offset_top = 760.0
+offset_right = 1150.0
+offset_bottom = 827.0
+mouse_default_cursor_shape = 2
+text = "Controles"
+
+[node name="sair_sprite" type="Sprite2D" parent="UI player/UI layer/pause"]
+position = Vector2(770, 594)
+
+[node name="quit" type="Button" parent="UI player/UI layer/pause"]
+layout_mode = 2
+offset_left = 770.0
+offset_top = 843.0
+offset_right = 1150.0
+offset_bottom = 910.0
+mouse_default_cursor_shape = 2
+text = "Sair pro menu"
 
 [node name="sfx_recarregar" type="AudioStreamPlayer2D" parent="."]
 
@@ -476,7 +484,7 @@ volume_db = -12.876
 [connection signal="area_exited" from="hurtbox" to="." method="_on_hurtbox_area_exited"]
 [connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]
 [connection signal="body_exited" from="hurtbox" to="." method="_on_hurtbox_body_exited"]
-[connection signal="pressed" from="UI player/UI layer/pause/VBoxContainer/continue" to="UI player" method="_on_continue_pressed"]
-[connection signal="pressed" from="UI player/UI layer/pause/VBoxContainer/restart" to="UI player" method="_on_restart_pressed"]
-[connection signal="pressed" from="UI player/UI layer/pause/VBoxContainer/controles" to="UI player" method="_on_options_pressed"]
-[connection signal="pressed" from="UI player/UI layer/pause/VBoxContainer/quit" to="UI player" method="_on_quit_pressed"]
+[connection signal="pressed" from="UI player/UI layer/pause/continue" to="UI player" method="_on_continue_pressed"]
+[connection signal="pressed" from="UI player/UI layer/pause/restart" to="UI player" method="_on_restart_pressed"]
+[connection signal="pressed" from="UI player/UI layer/pause/controles" to="UI player" method="_on_options_pressed"]
+[connection signal="pressed" from="UI player/UI layer/pause/quit" to="UI player" method="_on_quit_pressed"]

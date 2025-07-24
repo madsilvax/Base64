@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dmmgoyduccs56"]
+[gd_scene load_steps=4 format=3 uid="uid://dmmgoyduccs56"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_a0e2s"]
+[ext_resource type="Texture2D" uid="uid://cddgdrlc8ym1u" path="res://assets/UI/Menu/16.png" id="2_c0ieu"]
+[ext_resource type="Texture2D" uid="uid://ufbjjp12lil1" path="res://assets/UI/Menu/8.png" id="3_6ysf2"]
 
 [node name="main_menu" type="Control"]
 layout_mode = 3
@@ -21,41 +23,35 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -28.0
-offset_top = -33.0
-offset_right = 28.0
-offset_bottom = 33.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Botôes" type="Node" parent="TextureRect"]
 
-[node name="iniciar" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-mouse_default_cursor_shape = 2
-text = "iniciar"
+[node name="NovoJogo" type="Sprite2D" parent="TextureRect/Botôes"]
+position = Vector2(978.875, 612.25)
+scale = Vector2(0.14125, 0.14125)
+texture = ExtResource("2_c0ieu")
 
-[node name="config" type="Button" parent="VBoxContainer"]
-layout_mode = 2
+[node name="iniciar" type="Button" parent="TextureRect/Botôes"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 857.875
+offset_top = 562.25
+offset_right = 1098.88
+offset_bottom = 660.25
 mouse_default_cursor_shape = 2
-text = "configurações"
 
-[node name="sair" type="Button" parent="VBoxContainer"]
-layout_mode = 2
+[node name="Sair" type="Sprite2D" parent="TextureRect/Botôes"]
+position = Vector2(979.875, 761.25)
+scale = Vector2(0.140826, 0.140826)
+texture = ExtResource("3_6ysf2")
+
+[node name="sair" type="Button" parent="TextureRect/Botôes"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 859.875
+offset_top = 712.25
+offset_right = 1099.88
+offset_bottom = 810.25
 mouse_default_cursor_shape = 2
-text = "sair"
 
 [node name="Menu ost" type="AudioStreamPlayer2D" parent="."]
 
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[connection signal="pressed" from="VBoxContainer/iniciar" to="." method="_on_iniciar_pressed"]
-[connection signal="pressed" from="VBoxContainer/sair" to="." method="_on_sair_pressed"]
+[connection signal="pressed" from="TextureRect/Botôes/iniciar" to="." method="_on_iniciar_pressed"]
+[connection signal="pressed" from="TextureRect/Botôes/sair" to="." method="_on_sair_pressed"]
