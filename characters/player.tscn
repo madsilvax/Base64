@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://dmhqu78ijk2qe"]
+[gd_scene load_steps=41 format=3 uid="uid://dmhqu78ijk2qe"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_jn3sm"]
 [ext_resource type="Texture2D" uid="uid://dqtet1q7svwap" path="res://assets/characters/Player/Players/players green x2.png" id="1_yi5q6"]
@@ -7,7 +7,10 @@
 [ext_resource type="Shader" path="res://assets/UI/PauseMenu.gdshader" id="4_f2ig3"]
 [ext_resource type="Script" path="res://scripts/ui_player.gd" id="4_kri8k"]
 [ext_resource type="AudioStream" uid="uid://byrksw8y8xkk4" path="res://assets/sounds/sfx/arma_laser_atira.mp3" id="7_7o1cv"]
-[ext_resource type="Texture2D" uid="uid://brayhtvnqk77v" path="res://assets/UI/Menu/5.png" id="7_21epw"]
+[ext_resource type="Texture2D" uid="uid://8uyc4lg0jab" path="res://assets/UI/Menu/13.png" id="7_jwh8r"]
+[ext_resource type="Theme" uid="uid://dbnade3mghul" path="res://assets/UI/Menu/Continue2.tres" id="7_lslm5"]
+[ext_resource type="Theme" uid="uid://dv4217lyjeewm" path="res://assets/UI/Menu/restart2.tres" id="9_yudwp"]
+[ext_resource type="Theme" uid="uid://cygm3es3wkwhp" path="res://assets/UI/Menu/quit2.tres" id="10_8ma6q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_avh8l"]
 atlas = ExtResource("1_yi5q6")
@@ -188,6 +191,12 @@ size = Vector2(25, 26)
 shader = ExtResource("4_f2ig3")
 shader_parameter/lod = 0.8
 
+[sub_resource type="InputEventKey" id="InputEventKey_h5c1w"]
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_oah30"]
+events = [SubResource("InputEventKey_h5c1w")]
+
 [sub_resource type="Animation" id="Animation_yk4xh"]
 length = 0.001
 tracks/0/type = "value"
@@ -211,50 +220,6 @@ tracks/1/loop_wrap = true
 tracks/1/keys = {
 "handle_modes": PackedInt32Array(0),
 "points": PackedFloat32Array(0.8, -0.15, 0, 0.15, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Panel:modulate:r")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.15, 0, 0.15, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Panel:modulate:g")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.15, 0, 0.15, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/4/type = "bezier"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Panel:modulate:b")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.15, 0, 0.15, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/5/type = "bezier"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Panel:modulate:a")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.15, 0, 0.15, 0),
 "times": PackedFloat32Array(0)
 }
 
@@ -284,62 +249,12 @@ tracks/1/keys = {
 "points": PackedFloat32Array(0, -0.15, 0, 0.15, 0, 0.8, -0.15, 0, 0.15, 0),
 "times": PackedFloat32Array(0, 0.3)
 }
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Panel:modulate:r")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(1, -0.15, 0, 0.15, 0, 1, -0.15, 0, 0.15, 0),
-"times": PackedFloat32Array(0, 0.3)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Panel:modulate:g")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(1, -0.15, 0, 0.15, 0, 1, -0.15, 0, 0.15, 0),
-"times": PackedFloat32Array(0, 0.3)
-}
-tracks/4/type = "bezier"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Panel:modulate:b")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(1, -0.15, 0, 0.15, 0, 1, -0.15, 0, 0.15, 0),
-"times": PackedFloat32Array(0, 0.3)
-}
-tracks/5/type = "bezier"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Panel:modulate:a")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.15, 0, 0.15, 0, 1, -0.15, 0, 0.15, 0),
-"times": PackedFloat32Array(0, 0.3)
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dgyao"]
 _data = {
 "RESET": SubResource("Animation_yk4xh"),
 "blur": SubResource("Animation_cwgyy")
 }
-
-[sub_resource type="InputEventKey" id="InputEventKey_h5c1w"]
-keycode = 4194305
-
-[sub_resource type="Shortcut" id="Shortcut_oah30"]
-events = [SubResource("InputEventKey_h5c1w")]
 
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_jn3sm")
@@ -409,68 +324,43 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.431373, 0, 0.156863, 0.301961)
 
-[node name="Panel" type="Panel" parent="UI player/UI layer/pause"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="logo" type="Sprite2D" parent="UI player/UI layer/pause"]
+position = Vector2(968, 277)
+scale = Vector2(0.17925, 0.17925)
+texture = ExtResource("7_jwh8r")
+
+[node name="continue" type="Button" parent="UI player/UI layer/pause"]
+layout_mode = 2
+offset_left = 838.0
+offset_top = 480.0
+offset_right = 1082.0
+offset_bottom = 617.0
+mouse_default_cursor_shape = 2
+theme = ExtResource("7_lslm5")
+shortcut = SubResource("Shortcut_oah30")
+
+[node name="restart" type="Button" parent="UI player/UI layer/pause"]
+layout_mode = 2
+offset_left = 834.0
+offset_top = 645.0
+offset_right = 1083.0
+offset_bottom = 782.0
+mouse_default_cursor_shape = 2
+theme = ExtResource("9_yudwp")
+
+[node name="quit" type="Button" parent="UI player/UI layer/pause"]
+layout_mode = 2
+offset_left = 836.0
+offset_top = 803.0
+offset_right = 1088.0
+offset_bottom = 940.0
+mouse_default_cursor_shape = 2
+theme = ExtResource("10_8ma6q")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI player/UI layer/pause"]
 libraries = {
 "": SubResource("AnimationLibrary_dgyao")
 }
-
-[node name="continue_sprite" type="Sprite2D" parent="UI player/UI layer/pause"]
-position = Vector2(959, 621)
-scale = Vector2(0.1615, 0.1615)
-texture = ExtResource("7_21epw")
-
-[node name="continue" type="Button" parent="UI player/UI layer/pause"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-offset_left = 770.0
-offset_top = 594.0
-offset_right = 1150.0
-offset_bottom = 661.0
-mouse_default_cursor_shape = 2
-shortcut = SubResource("Shortcut_oah30")
-text = "continuar"
-
-[node name="restart_sprite" type="Sprite2D" parent="UI player/UI layer/pause"]
-position = Vector2(770, 594)
-
-[node name="restart" type="Button" parent="UI player/UI layer/pause"]
-layout_mode = 2
-offset_left = 770.0
-offset_top = 677.0
-offset_right = 1150.0
-offset_bottom = 744.0
-mouse_default_cursor_shape = 2
-text = "Recomeçar nível"
-
-[node name="controles" type="Button" parent="UI player/UI layer/pause"]
-layout_mode = 2
-offset_left = 770.0
-offset_top = 760.0
-offset_right = 1150.0
-offset_bottom = 827.0
-mouse_default_cursor_shape = 2
-text = "Controles"
-
-[node name="sair_sprite" type="Sprite2D" parent="UI player/UI layer/pause"]
-position = Vector2(770, 594)
-
-[node name="quit" type="Button" parent="UI player/UI layer/pause"]
-layout_mode = 2
-offset_left = 770.0
-offset_top = 843.0
-offset_right = 1150.0
-offset_bottom = 910.0
-mouse_default_cursor_shape = 2
-text = "Sair pro menu"
 
 [node name="sfx_recarregar" type="AudioStreamPlayer2D" parent="."]
 
@@ -486,5 +376,4 @@ volume_db = -12.876
 [connection signal="body_exited" from="hurtbox" to="." method="_on_hurtbox_body_exited"]
 [connection signal="pressed" from="UI player/UI layer/pause/continue" to="UI player" method="_on_continue_pressed"]
 [connection signal="pressed" from="UI player/UI layer/pause/restart" to="UI player" method="_on_restart_pressed"]
-[connection signal="pressed" from="UI player/UI layer/pause/controles" to="UI player" method="_on_options_pressed"]
 [connection signal="pressed" from="UI player/UI layer/pause/quit" to="UI player" method="_on_quit_pressed"]
