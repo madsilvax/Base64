@@ -14,7 +14,8 @@ config/name="Takedown Techno"
 run/main_scene="res://screens/main_menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
-config/icon="res://icon.svg"
+boot_splash/image="res://assets/UI/Menu/13.png"
+config/icon="res://assets/UI/T-ICON.svg"
 
 [display]
 

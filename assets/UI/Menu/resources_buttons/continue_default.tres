@@ -1,6 +1,7 @@
-[gd_resource type="Theme" load_steps=11 format=4 uid="uid://dbnade3mghul"]
+[gd_resource type="Theme" load_steps=12 format=4 uid="uid://dbnade3mghul"]
 
-[ext_resource type="Texture2D" uid="uid://brayhtvnqk77v" path="res://assets/UI/Menu/5.png" id="1_ayy2g"]
+[ext_resource type="Texture2D" uid="uid://dvcxxckio8oo7" path="res://assets/UI/Menu/12.png" id="1_o4at0"]
+[ext_resource type="Texture2D" uid="uid://brayhtvnqk77v" path="res://assets/UI/Menu/5.png" id="2_4o1ws"]
 
 [sub_resource type="Image" id="Image_iwdjg"]
 data = {
@@ -1489,33 +1490,17 @@ expand_margin_top = 2.0
 expand_margin_right = 2.0
 expand_margin_bottom = 2.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_acaqr"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.225, 0.225, 0.225, 0.6)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7yasj"]
-texture = ExtResource("1_ayy2g")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hfctw"]
+texture = ExtResource("1_o4at0")
 region_rect = Rect2(633, 634, 1794, 796)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ppjw0"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0, 0, 0, 0.6)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7yasj"]
+texture = ExtResource("2_4o1ws")
+region_rect = Rect2(633, 634, 1794, 796)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_306qy"]
+texture = ExtResource("1_o4at0")
+region_rect = Rect2(633, 634, 1794, 796)
 
 [resource]
 Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
@@ -1539,6 +1524,6 @@ Button/font_sizes/font_size = 16
 Button/fonts/font = SubResource("FontFile_5b2rj")
 Button/styles/disabled = SubResource("StyleBoxFlat_nxost")
 Button/styles/focus = SubResource("StyleBoxFlat_jetjf")
-Button/styles/hover = SubResource("StyleBoxFlat_acaqr")
+Button/styles/hover = SubResource("StyleBoxTexture_hfctw")
 Button/styles/normal = SubResource("StyleBoxTexture_7yasj")
-Button/styles/pressed = SubResource("StyleBoxFlat_ppjw0")
+Button/styles/pressed = SubResource("StyleBoxTexture_306qy")

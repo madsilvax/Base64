@@ -8,9 +8,9 @@
 [ext_resource type="Script" path="res://scripts/ui_player.gd" id="4_kri8k"]
 [ext_resource type="AudioStream" uid="uid://byrksw8y8xkk4" path="res://assets/sounds/sfx/arma_laser_atira.mp3" id="7_7o1cv"]
 [ext_resource type="Texture2D" uid="uid://8uyc4lg0jab" path="res://assets/UI/Menu/13.png" id="7_jwh8r"]
-[ext_resource type="Theme" uid="uid://dbnade3mghul" path="res://assets/UI/Menu/Continue2.tres" id="7_lslm5"]
-[ext_resource type="Theme" uid="uid://dv4217lyjeewm" path="res://assets/UI/Menu/restart2.tres" id="9_yudwp"]
-[ext_resource type="Theme" uid="uid://cygm3es3wkwhp" path="res://assets/UI/Menu/quit2.tres" id="10_8ma6q"]
+[ext_resource type="Theme" uid="uid://dbnade3mghul" path="res://assets/UI/Menu/resources_buttons/continue_default.tres" id="7_lslm5"]
+[ext_resource type="Theme" uid="uid://dv4217lyjeewm" path="res://assets/UI/Menu/resources_buttons/restart_defult.tres" id="9_yudwp"]
+[ext_resource type="Theme" uid="uid://cygm3es3wkwhp" path="res://assets/UI/Menu/resources_buttons/quit_default.tres" id="10_8ma6q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_avh8l"]
 atlas = ExtResource("1_yi5q6")

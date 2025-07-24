@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://dmmgoyduccs56"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_a0e2s"]
-[ext_resource type="Texture2D" uid="uid://cddgdrlc8ym1u" path="res://assets/UI/Menu/16.png" id="2_c0ieu"]
-[ext_resource type="Texture2D" uid="uid://ufbjjp12lil1" path="res://assets/UI/Menu/8.png" id="3_6ysf2"]
+[ext_resource type="Theme" uid="uid://dsuhbvsqex3aq" path="res://assets/UI/Menu/resources_buttons/novo_jogo.tres" id="2_it3su"]
+[ext_resource type="Theme" uid="uid://cygm3es3wkwhp" path="res://assets/UI/Menu/resources_buttons/quit_default.tres" id="3_pu4d4"]
 [ext_resource type="VideoStream" path="res://assets/UI/Menu/MENU-SEM-BOTOES.ogv" id="4_q3y65"]
 
 [node name="main_menu" type="Control"]
@@ -26,31 +26,23 @@ grow_vertical = 2
 
 [node name="Botôes" type="Node" parent="TextureRect"]
 
-[node name="NovoJogo" type="Sprite2D" parent="TextureRect/Botôes"]
-position = Vector2(978.875, 612.25)
-scale = Vector2(0.14125, 0.14125)
-texture = ExtResource("2_c0ieu")
-
 [node name="iniciar" type="Button" parent="TextureRect/Botôes"]
-modulate = Color(1, 1, 1, 0)
-offset_left = 857.875
-offset_top = 562.25
-offset_right = 1098.88
-offset_bottom = 660.25
+offset_left = 832.875
+offset_top = 617.25
+offset_right = 1073.88
+offset_bottom = 715.25
 mouse_default_cursor_shape = 2
-
-[node name="Sair" type="Sprite2D" parent="TextureRect/Botôes"]
-position = Vector2(979.875, 761.25)
-scale = Vector2(0.140826, 0.140826)
-texture = ExtResource("3_6ysf2")
+theme = ExtResource("2_it3su")
+metadata/_edit_use_anchors_ = true
 
 [node name="sair" type="Button" parent="TextureRect/Botôes"]
-modulate = Color(1, 1, 1, 0)
-offset_left = 859.875
-offset_top = 712.25
-offset_right = 1099.88
-offset_bottom = 810.25
+offset_left = 834.875
+offset_top = 773.25
+offset_right = 1074.88
+offset_bottom = 871.25
 mouse_default_cursor_shape = 2
+theme = ExtResource("3_pu4d4")
+metadata/_edit_use_anchors_ = true
 
 [node name="Menu ost" type="AudioStreamPlayer2D" parent="."]
 

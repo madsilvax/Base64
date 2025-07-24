@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=4 uid="uid://dheqygifoinl1"]
+[gd_scene load_steps=7 format=4 uid="uid://dheqygifoinl1"]
 
 [ext_resource type="Script" path="res://scripts/level_0.gd" id="1_debah"]
 [ext_resource type="PackedScene" uid="uid://dmhqu78ijk2qe" path="res://characters/player.tscn" id="1_t1tgu"]
+[ext_resource type="AudioStream" uid="uid://dxnnoudqbevkf" path="res://assets/sounds/sfx/mechanical_tension.wav" id="4_iaiym"]
 [ext_resource type="Texture2D" uid="uid://dtdwc3sjjk556" path="res://assets/floor and walls/tileset x2.png" id="4_yp5ih"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hsl6i"]
@@ -309,3 +310,7 @@ tile_set = SubResource("TileSet_7ps20")
 
 [node name="player" parent="." instance=ExtResource("1_t1tgu")]
 position = Vector2(-500, 200)
+
+[node name="soundtrack" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_iaiym")
+attenuation = 1.23115
