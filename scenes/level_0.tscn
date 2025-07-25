@@ -2339,11 +2339,6 @@ format = 2
 
 [node name="player" parent="Ysort" instance=ExtResource("1_t1tgu")]
 position = Vector2(-500, 200)
-velocidade = null
-multiplicador_corrida = null
-intensidade_tremer_camera = null
-vida_maxima = null
-tempo_invencibilidade = null
 
 [node name="TuboEnergia" parent="Ysort" instance=ExtResource("6_ki582")]
 position = Vector2(0, -15)

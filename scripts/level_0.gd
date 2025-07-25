@@ -7,7 +7,7 @@ extends Node2D
 
 func _ready():
 	soundtrack_level0.play()
-	timer_sussurros.start()	
+	timer_sussurros.start()
 
 
 func _on_timer_inicio_timeout():
