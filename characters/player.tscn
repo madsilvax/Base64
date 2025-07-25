@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://dmhqu78ijk2qe"]
+[gd_scene load_steps=42 format=3 uid="uid://dmhqu78ijk2qe"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_jn3sm"]
 [ext_resource type="Texture2D" uid="uid://dqtet1q7svwap" path="res://assets/characters/Player/Players/players green x2.png" id="1_yi5q6"]
@@ -6,6 +6,7 @@
 [ext_resource type="Theme" uid="uid://dqd1rercjqtpw" path="res://themes/ui_player.tres" id="4_5724h"]
 [ext_resource type="Shader" path="res://assets/UI/PauseMenu.gdshader" id="4_f2ig3"]
 [ext_resource type="Script" path="res://scripts/ui_player.gd" id="4_kri8k"]
+[ext_resource type="Texture2D" uid="uid://bkqxy87pux3io" path="res://assets/UI/ui x3.png" id="6_j4fej"]
 [ext_resource type="AudioStream" uid="uid://byrksw8y8xkk4" path="res://assets/sounds/sfx/arma_laser_atira.mp3" id="7_7o1cv"]
 [ext_resource type="Texture2D" uid="uid://8uyc4lg0jab" path="res://assets/UI/Menu/13.png" id="7_jwh8r"]
 [ext_resource type="Theme" uid="uid://dbnade3mghul" path="res://assets/UI/Menu/resources_buttons/continue_default.tres" id="7_lslm5"]
@@ -181,11 +182,12 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2jt7s"]
-radius = 6.99992
-height = 23.9997
+radius = 1.0
+height = 24.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5wuas"]
-size = Vector2(25, 28)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_30fj1"]
+radius = 8.0
+height = 16.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g0wnp"]
 shader = ExtResource("4_f2ig3")
@@ -266,15 +268,15 @@ animation = &"padrao_baixo"
 frame_progress = 0.727376
 
 [node name="collision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 10)
-rotation = 1.5756
+position = Vector2(0, 9)
+rotation = 1.5708
 shape = SubResource("CapsuleShape2D_2jt7s")
 
 [node name="hurtbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
-position = Vector2(0.5, 0)
-shape = SubResource("RectangleShape2D_5wuas")
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_30fj1")
 
 [node name="camera" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
@@ -305,6 +307,14 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("4_5724h")
+
+[node name="life" type="Sprite2D" parent="UI player/UI layer/hud"]
+position = Vector2(192, 96)
+scale = Vector2(2, 2)
+texture = ExtResource("6_j4fej")
+hframes = 20
+vframes = 11
+frame = 10
 
 [node name="pause" type="Control" parent="UI player/UI layer"]
 process_mode = 3
@@ -372,6 +382,7 @@ volume_db = -12.876
 
 [node name="sfx_dano" type="AudioStreamPlayer2D" parent="."]
 process_mode = 1
+position = Vector2(0, 1)
 
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="area_exited" from="hurtbox" to="." method="_on_hurtbox_area_exited"]

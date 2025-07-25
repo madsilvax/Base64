@@ -8,6 +8,7 @@ class_name Player
 @onready var sprite_animado: AnimatedSprite2D = $anim
 @export var intensidade_tremer_camera: float = 0.3
 @onready var area_detecao: Area2D = $AreaDetecao
+@onready var life_sprite: Sprite2D = $"UI player/UI layer/hud/life"
 
 # Sons
 @onready var recarregando_sfx: AudioStreamPlayer2D = $sfx_recarregar
@@ -30,8 +31,8 @@ var municao_pente = 30
 var pentes = 3
 
 # Sistema de vida
-@export var vida_maxima: int = 100
-var vida_atual: int = vida_maxima
+@export var vida_maxima: int = 90
+@export var vida_atual: int = vida_maxima
 var invencivel: bool = false
 @export var tempo_invencibilidade: float = 1.0
 
@@ -82,6 +83,8 @@ func _physics_process(delta: float) -> void:
 		
 	if Input.is_action_just_pressed("recarregar") and not esta_recarregando and not esta_atirando and municao < municao_maxima and municao_pente > 0:
 		reload()
+	
+	update_life()
 
 func shoot():
 	esta_atirando = true
@@ -119,3 +122,25 @@ func reload():
 		sprite_animado.play("padrao_baixo")
 	else:
 		sprite_animado.play("run")
+
+func update_life():
+	if vida_atual == 90:
+		life_sprite.set_frame(10)
+	if vida_atual == 80:
+		life_sprite.set_frame(9)
+	if vida_atual == 70:
+		life_sprite.set_frame(8)
+	if vida_atual == 60:
+		life_sprite.set_frame(7)
+	if vida_atual == 50:
+		life_sprite.set_frame(6)
+	if vida_atual == 40:
+		life_sprite.set_frame(5)
+	if vida_atual == 30:
+		life_sprite.set_frame(4)
+	if vida_atual == 20:
+		life_sprite.set_frame(3)
+	if vida_atual == 10:
+		life_sprite.set_frame(2)
+	if vida_atual == 00:
+		life_sprite.set_frame(1)
