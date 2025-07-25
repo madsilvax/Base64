@@ -363,12 +363,15 @@ libraries = {
 }
 
 [node name="sfx_recarregar" type="AudioStreamPlayer2D" parent="."]
+process_mode = 1
 
 [node name="sfx_atirar" type="AudioStreamPlayer2D" parent="."]
+process_mode = 1
 stream = ExtResource("7_7o1cv")
 volume_db = -12.876
 
 [node name="sfx_dano" type="AudioStreamPlayer2D" parent="."]
+process_mode = 1
 
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="area_exited" from="hurtbox" to="." method="_on_hurtbox_area_exited"]
