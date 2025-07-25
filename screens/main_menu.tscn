@@ -31,7 +31,6 @@ offset_left = 832.875
 offset_top = 617.25
 offset_right = 1073.88
 offset_bottom = 715.25
-mouse_default_cursor_shape = 2
 theme = ExtResource("2_it3su")
 metadata/_edit_use_anchors_ = true
 
@@ -40,7 +39,6 @@ offset_left = 834.875
 offset_top = 773.25
 offset_right = 1074.88
 offset_bottom = 871.25
-mouse_default_cursor_shape = 2
 theme = ExtResource("3_pu4d4")
 metadata/_edit_use_anchors_ = true
 

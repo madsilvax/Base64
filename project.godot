@@ -15,13 +15,14 @@ run/main_scene="res://screens/main_menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/image="res://assets/UI/Menu/13.png"
-config/icon="res://assets/UI/T-ICON.svg"
+config/icon="res://assets/UI/T ICON SVG-01.svg"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/size/mode=3
+mouse_cursor/custom_image="res://assets/UI/MOUSEEE.png"
 
 [global_group]
 

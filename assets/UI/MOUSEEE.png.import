@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c467q3xwhgt5"
-path="res://.godot/imported/props and items x1.png-e40bbbf4917cc078d5fb5ea2edb451fc.ctex"
+uid="uid://da3nhdx1q2urw"
+path="res://.godot/imported/MOUSEEE.png-d4917067053d98d3d971c9b002281e86.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Props and Items/props and items x1.png"
-dest_files=["res://.godot/imported/props and items x1.png-e40bbbf4917cc078d5fb5ea2edb451fc.ctex"]
+source_file="res://assets/UI/MOUSEEE.png"
+dest_files=["res://.godot/imported/MOUSEEE.png-d4917067053d98d3d971c9b002281e86.ctex"]
 
 [params]
 
