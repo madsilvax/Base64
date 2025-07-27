@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://dheqygifoinl1"]
+[gd_scene load_steps=14 format=4 uid="uid://dheqygifoinl1"]
 
 [ext_resource type="Script" path="res://scripts/level_0.gd" id="1_debah"]
 [ext_resource type="PackedScene" uid="uid://dmhqu78ijk2qe" path="res://characters/player.tscn" id="1_t1tgu"]
@@ -2310,6 +2310,11 @@ tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_y8wcj")
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_v05wb"]
+blend_mode = 3
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ygahe"]
+
 [node name="level_0" type="Node2D"]
 script = ExtResource("1_debah")
 
@@ -2337,11 +2342,20 @@ tile_set = SubResource("TileSet_7ps20")
 tile_set = SubResource("TileSet_74re8")
 format = 2
 
-[node name="player" parent="Ysort" instance=ExtResource("1_t1tgu")]
-position = Vector2(-500, 200)
-
 [node name="TuboEnergia" parent="Ysort" instance=ExtResource("6_ki582")]
 position = Vector2(0, -15)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+self_modulate = Color(0.803147, 0.368581, 0.0795053, 1)
+material = SubResource("CanvasItemMaterial_v05wb")
+offset_left = -803.0
+offset_top = -323.0
+offset_right = 800.0
+offset_bottom = 607.0
+
+[node name="player" parent="." instance=ExtResource("1_t1tgu")]
+material = SubResource("CanvasItemMaterial_ygahe")
+position = Vector2(-500, 200)
 
 [node name="TimerInicio" type="Timer" parent="."]
 wait_time = 30.0

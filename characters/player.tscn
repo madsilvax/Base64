@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://dmhqu78ijk2qe"]
+[gd_scene load_steps=54 format=3 uid="uid://dmhqu78ijk2qe"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_jn3sm"]
 [ext_resource type="Texture2D" uid="uid://dqtet1q7svwap" path="res://assets/characters/Player/Players/players green x2.png" id="1_yi5q6"]
@@ -12,6 +12,15 @@
 [ext_resource type="Theme" uid="uid://dbnade3mghul" path="res://assets/UI/Menu/resources_buttons/continue_default.tres" id="7_lslm5"]
 [ext_resource type="Theme" uid="uid://dv4217lyjeewm" path="res://assets/UI/Menu/resources_buttons/restart_defult.tres" id="9_yudwp"]
 [ext_resource type="Theme" uid="uid://cygm3es3wkwhp" path="res://assets/UI/Menu/resources_buttons/quit_default.tres" id="10_8ma6q"]
+[ext_resource type="Texture2D" uid="uid://bln5a7kdho8vq" path="res://Asset 16.png" id="13_xdv6d"]
+[ext_resource type="Texture2D" uid="uid://bhhxgk6v6odb5" path="res://LUZ BLUR.png" id="14_ijsgu"]
+[ext_resource type="Texture2D" uid="uid://b3p3ki6i6awhu" path="res://PRETO.png" id="14_y4t31"]
+[ext_resource type="Texture2D" uid="uid://bhk1j5c1sak76" path="res://LUZ BLUR PRETO.png" id="15_i6vpy"]
+[ext_resource type="Texture2D" uid="uid://sj521tp4i7qk" path="res://LUZ BLUR MELHOR.png" id="17_kb2s3"]
+[ext_resource type="Texture2D" uid="uid://d0h26p6gq0jw3" path="res://AQUIII BLUR.png" id="18_06b1x"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_kalgc"]
+blend_mode = 1
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_avh8l"]
 atlas = ExtResource("1_yi5q6")
@@ -182,12 +191,12 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2jt7s"]
-radius = 1.0
+radius = 3.0
 height = 24.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_30fj1"]
-radius = 8.0
-height = 16.0
+radius = 17.0
+height = 36.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g0wnp"]
 shader = ExtResource("4_f2ig3")
@@ -258,8 +267,29 @@ _data = {
 "blur": SubResource("Animation_cwgyy")
 }
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_thilt"]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_uhiu5"]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_epk0d"]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4drrn"]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_xdt04"]
+blend_mode = 1
+
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_jn3sm")
+
+[node name="AquiiiBlur" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_kalgc")
+position = Vector2(0, 2)
+scale = Vector2(0.293986, 0.293986)
+texture = ExtResource("18_06b1x")
 
 [node name="anim" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -14)
@@ -268,7 +298,7 @@ animation = &"padrao_baixo"
 frame_progress = 0.727376
 
 [node name="collision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 9)
+position = Vector2(0, 16)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_2jt7s")
 
@@ -383,6 +413,47 @@ volume_db = -12.876
 [node name="sfx_dano" type="AudioStreamPlayer2D" parent="."]
 process_mode = 1
 position = Vector2(0, 1)
+
+[node name="Asset16" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("CanvasItemMaterial_thilt")
+position = Vector2(-1, 1)
+scale = Vector2(0.110838, 0.110838)
+texture = ExtResource("13_xdv6d")
+
+[node name="LuzBlur" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("CanvasItemMaterial_uhiu5")
+position = Vector2(-1, 5)
+scale = Vector2(0.395246, 0.395246)
+texture = ExtResource("14_ijsgu")
+
+[node name="LuzBlurPreto" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("CanvasItemMaterial_epk0d")
+position = Vector2(0, 1)
+scale = Vector2(0.378868, 0.378868)
+texture = ExtResource("15_i6vpy")
+
+[node name="Preto" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("CanvasItemMaterial_4drrn")
+position = Vector2(-1, 1)
+scale = Vector2(0.110713, 0.110713)
+texture = ExtResource("14_y4t31")
+
+[node name="LuzBlurMelhor" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("CanvasItemMaterial_xdt04")
+position = Vector2(4.76837e-07, 2)
+scale = Vector2(0.302558, 0.302558)
+texture = ExtResource("17_kb2s3")
+
+[node name="LuzBlurPreto2" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.94902)
+position = Vector2(1, 16)
+scale = Vector2(0.0404551, 0.00947299)
+texture = ExtResource("15_i6vpy")
 
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="area_exited" from="hurtbox" to="." method="_on_hurtbox_area_exited"]
