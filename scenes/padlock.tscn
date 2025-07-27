@@ -1,0 +1,177 @@
+[gd_scene load_steps=9 format=3 uid="uid://b2ngl1siuokub"]
+
+[ext_resource type="Script" path="res://scripts/padlock.gd" id="1_ooib4"]
+[ext_resource type="Texture2D" uid="uid://eniwgp637mpv" path="res://assets/minigame/padlock/background.png" id="2_qe2o7"]
+[ext_resource type="Theme" uid="uid://f7e0gm4035bk" path="res://themes/minigame.tres" id="3_2rcu7"]
+[ext_resource type="Texture2D" uid="uid://c0d75iomx3a5y" path="res://assets/minigame/padlock/screen.png" id="4_bgd2p"]
+
+[sub_resource type="Theme" id="Theme_8hnu2"]
+
+[sub_resource type="Theme" id="Theme_gpbw7"]
+
+[sub_resource type="Theme" id="Theme_b8130"]
+
+[sub_resource type="Theme" id="Theme_fikqp"]
+
+[node name="padlock" type="Node2D"]
+script = ExtResource("1_ooib4")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.784314)
+
+[node name="padlock" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -309.0
+offset_right = 256.0
+offset_bottom = 309.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_qe2o7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/padlock"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -240.0
+offset_right = 192.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_2rcu7")
+
+[node name="screen" type="TextureRect" parent="Control/padlock/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_bgd2p")
+
+[node name="Label" type="Label" parent="Control/padlock/VBoxContainer/screen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -11.5
+offset_right = 56.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "insira o codigo"
+
+[node name="HSeparator" type="HSeparator" parent="Control/padlock/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_2rcu7")
+
+[node name="Buttons123" type="HBoxContainer" parent="Control/padlock/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("3_2rcu7")
+
+[node name="Button1" type="Button" parent="Control/padlock/VBoxContainer/Buttons123"]
+layout_mode = 2
+theme = ExtResource("3_2rcu7")
+toggle_mode = true
+text = "....."
+
+[node name="Button2" type="Button" parent="Control/padlock/VBoxContainer/Buttons123"]
+layout_mode = 2
+theme = SubResource("Theme_8hnu2")
+toggle_mode = true
+text = "....."
+
+[node name="Button3" type="Button" parent="Control/padlock/VBoxContainer/Buttons123"]
+layout_mode = 2
+theme = SubResource("Theme_gpbw7")
+toggle_mode = true
+text = "....."
+
+[node name="Buttons456" type="HBoxContainer" parent="Control/padlock/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_b8130")
+
+[node name="Button4" type="Button" parent="Control/padlock/VBoxContainer/Buttons456"]
+layout_mode = 2
+toggle_mode = true
+text = "....."
+
+[node name="Button5" type="Button" parent="Control/padlock/VBoxContainer/Buttons456"]
+layout_mode = 2
+toggle_mode = true
+text = "....."
+
+[node name="Button6" type="Button" parent="Control/padlock/VBoxContainer/Buttons456"]
+layout_mode = 2
+toggle_mode = true
+text = "....."
+
+[node name="Buttons789" type="HBoxContainer" parent="Control/padlock/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_fikqp")
+
+[node name="Button7" type="Button" parent="Control/padlock/VBoxContainer/Buttons789"]
+layout_mode = 2
+toggle_mode = true
+text = "....."
+
+[node name="Button8" type="Button" parent="Control/padlock/VBoxContainer/Buttons789"]
+layout_mode = 2
+toggle_mode = true
+text = "....."
+
+[node name="Button9" type="Button" parent="Control/padlock/VBoxContainer/Buttons789"]
+layout_mode = 2
+toggle_mode = true
+text = "....."
+
+[node name="exit" type="Button" parent="Control/padlock"]
+layout_mode = 0
+offset_left = 503.0
+offset_top = -15.0
+offset_right = 521.0
+offset_bottom = 16.0
+text = "X"
+
+[connection signal="toggled" from="Control/padlock/VBoxContainer/Buttons123/Button1" to="." method="_on_button_1_toggled"]
+[connection signal="toggled" from="Control/padlock/VBoxContainer/Buttons123/Button2" to="." method="_on_button_2_toggled"]
+[connection signal="toggled" from="Control/padlock/VBoxContainer/Buttons123/Button3" to="." method="_on_button_3_toggled"]
+[connection signal="toggled" from="Control/padlock/VBoxContainer/Buttons456/Button4" to="." method="_on_button_4_toggled"]
+[connection signal="toggled" from="Control/padlock/VBoxContainer/Buttons456/Button5" to="." method="_on_button_5_toggled"]
+[connection signal="toggled" from="Control/padlock/VBoxContainer/Buttons456/Button6" to="." method="_on_button_6_toggled"]
+[connection signal="toggled" from="Control/padlock/VBoxContainer/Buttons789/Button7" to="." method="_on_button_7_toggled"]
+[connection signal="toggled" from="Control/padlock/VBoxContainer/Buttons789/Button8" to="." method="_on_button_8_toggled"]
+[connection signal="toggled" from="Control/padlock/VBoxContainer/Buttons789/Button9" to="." method="_on_button_9_toggled"]
