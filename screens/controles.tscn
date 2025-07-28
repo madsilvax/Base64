@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjpg1b3bm4qal"]
+
+[ext_resource type="Script" path="res://scripts/controles.gd" id="1_em2b4"]
+[ext_resource type="Texture2D" uid="uid://bgcc4stwne806" path="res://assets/UI/INSTRUÇOES.jpg" id="2_35ldv"]
+[ext_resource type="AudioStream" uid="uid://c0pdughngrgg6" path="res://assets/sounds/sfx/alarme_base_64.mp3" id="3_p6j68"]
+
+[node name="Controles" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_em2b4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(954.5, 540)
+scale = Vector2(0.641, 0.542)
+texture = ExtResource("2_35ldv")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="Timer_alarme" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="Timer_transition" type="Timer" parent="."]
+
+[node name="alarme2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_p6j68")
+parameters/looping = true
+
+[node name="FadeAnimation" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1930.0
+offset_bottom = 1086.0
+color = Color(0, 0, 0, 1)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer_alarme" to="." method="_on_timer_alarme_timeout"]

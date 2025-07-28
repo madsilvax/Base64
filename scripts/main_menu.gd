@@ -27,8 +27,8 @@ func _on_iniciar_pressed():
 		.set_ease(Tween.EASE_IN_OUT)
 	
 	# Emite o sinal para mudar para level_0.tscn
-	change_scene.emit("res://scenes/level_0.tscn") 
-	get_tree().change_scene_to_file("res://scenes/level_0.tscn")
+	change_scene.emit("res://screens/controles.tscn") 
+	get_tree().change_scene_to_file("res://screens/controles.tscn")
 
 	
 func _on_sair_pressed() -> void:
