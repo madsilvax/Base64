@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://dheqygifoinl1"]
+[gd_scene load_steps=33 format=4 uid="uid://dheqygifoinl1"]
 
 [ext_resource type="Script" path="res://scripts/level_0.gd" id="1_debah"]
 [ext_resource type="PackedScene" uid="uid://dmhqu78ijk2qe" path="res://characters/player.tscn" id="1_t1tgu"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dkrsqct367eg5" path="res://assets/Props and Items/tubo_energia.tscn" id="6_ki582"]
 [ext_resource type="PackedScene" uid="uid://lnj6sipa5bm8" path="res://scenes/minigame.tscn" id="8_qnl46"]
 [ext_resource type="PackedScene" uid="uid://b2ngl1siuokub" path="res://scenes/padlock.tscn" id="9_xm8yx"]
+[ext_resource type="PackedScene" uid="uid://c0frrqb7dbvt1" path="res://characters/firewall.tscn" id="10_78sqt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hsl6i"]
 texture = ExtResource("4_yp5ih")
@@ -2497,6 +2498,9 @@ frame_progress = 0.840651
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ysort/Screen/screen_area"]
 position = Vector2(3, 47)
 shape = SubResource("RectangleShape2D_et06k")
+
+[node name="Firewall" parent="Ysort" instance=ExtResource("10_78sqt")]
+position = Vector2(472, 129)
 
 [node name="player" parent="Ysort" instance=ExtResource("1_t1tgu")]
 material = SubResource("CanvasItemMaterial_ygahe")

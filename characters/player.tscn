@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://dmhqu78ijk2qe"]
+[gd_scene load_steps=58 format=3 uid="uid://dmhqu78ijk2qe"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_jn3sm"]
 [ext_resource type="Texture2D" uid="uid://dqtet1q7svwap" path="res://assets/characters/Player/Players/players green x2.png" id="1_yi5q6"]
@@ -7,9 +7,11 @@
 [ext_resource type="Shader" path="res://assets/UI/PauseMenu.gdshader" id="4_f2ig3"]
 [ext_resource type="Script" path="res://scripts/ui_player.gd" id="4_kri8k"]
 [ext_resource type="Texture2D" uid="uid://bkqxy87pux3io" path="res://assets/UI/ui x3.png" id="6_j4fej"]
+[ext_resource type="AudioStream" uid="uid://b6rt3sn81f7r4" path="res://assets/sounds/sfx/reload.mp3" id="6_vmum8"]
 [ext_resource type="AudioStream" uid="uid://byrksw8y8xkk4" path="res://assets/sounds/sfx/arma_laser_atira.mp3" id="7_7o1cv"]
 [ext_resource type="Texture2D" uid="uid://8uyc4lg0jab" path="res://assets/UI/Menu/13.png" id="7_jwh8r"]
 [ext_resource type="Theme" uid="uid://dbnade3mghul" path="res://assets/UI/Menu/resources_buttons/continue_default.tres" id="7_lslm5"]
+[ext_resource type="AudioStream" uid="uid://csbaqdrsyirqa" path="res://assets/sounds/sfx/noammo.mp3" id="8_u0fay"]
 [ext_resource type="Theme" uid="uid://dv4217lyjeewm" path="res://assets/UI/Menu/resources_buttons/restart_defult.tres" id="9_yudwp"]
 [ext_resource type="Theme" uid="uid://cygm3es3wkwhp" path="res://assets/UI/Menu/resources_buttons/quit_default.tres" id="10_8ma6q"]
 [ext_resource type="Texture2D" uid="uid://bln5a7kdho8vq" path="res://Asset 16.png" id="13_xdv6d"]
@@ -327,15 +329,19 @@ offset_bottom = 180.0
 
 [node name="sfx_recarregar" type="AudioStreamPlayer2D" parent="."]
 process_mode = 1
+stream = ExtResource("6_vmum8")
+autoplay = true
 
 [node name="sfx_atirar" type="AudioStreamPlayer2D" parent="."]
 process_mode = 1
 stream = ExtResource("7_7o1cv")
 volume_db = -12.876
 
-[node name="sfx_dano" type="AudioStreamPlayer2D" parent="."]
+[node name="sfx_noammo" type="AudioStreamPlayer2D" parent="."]
 process_mode = 1
 position = Vector2(0, 1)
+stream = ExtResource("8_u0fay")
+autoplay = true
 
 [node name="Asset16" type="Sprite2D" parent="."]
 visible = false

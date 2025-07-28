@@ -15,7 +15,7 @@ class_name Player
 # Sons
 @onready var recarregando_sfx: AudioStreamPlayer2D = $sfx_recarregar
 @onready var atirando: AudioStreamPlayer2D = $sfx_atirar
-@onready var dano_sfx: AudioStreamPlayer2D = $sfx_dano
+@onready var sfx_noammo: AudioStreamPlayer2D = $sfx_noammo
 
 # Variáveis de controle
 var pode_interagir = true
@@ -89,19 +89,24 @@ func _physics_process(delta: float) -> void:
 	update_life()
 
 func shoot():
+	if municao <= 0:
+		# Toca som de sem munição e não atira
+		sfx_noammo.play()
+		return
+	
 	esta_atirando = true
 	sprite_animado.play("atirando")
 	atirando.play()
 	municao -= 1
 	
-	#Instancia o projétil
+	# Instancia o projétil
 	var projectile = projectile_scene.instantiate()
 	get_tree().current_scene.add_child(projectile)
 	
-	#Define a posição e direção
+	# Define a posição e direção
 	projectile.global_position = shoot_point.global_position
 	
-	#Decide a direção baseada no flip horizontal
+	# Decide a direção baseada no flip horizontal
 	var dir = Vector2.RIGHT
 	if sprite_animado.flip_h:
 		dir = Vector2.LEFT
@@ -119,12 +124,16 @@ func shoot():
 		sprite_animado.play("run")
 
 func reload():
+	if esta_recarregando:
+		return
 	esta_recarregando = true
-	sprite_animado.play("reload")
-	recarregando_sfx.play()
 	
-	# Espera a animação terminar
-	await sprite_animado.animation_finished
+	# Toca o som de recarregar imediatamente
+	recarregando_sfx.play()
+	sprite_animado.play("reload")
+	
+	# Aguarda um tempo fixo para evitar delay (ajuste 0.5 para o valor desejado)
+	await get_tree().create_timer(0.5).timeout
 	
 	# Calcula quantas balas recarregar
 	var balas_para_recarregar = min(municao_maxima - municao, municao_pente)
@@ -158,5 +167,11 @@ func update_life():
 		life_sprite.set_frame(3)
 	if vida_atual == 10:
 		life_sprite.set_frame(2)
-	if vida_atual == 00:
+	if vida_atual == 0:
 		life_sprite.set_frame(1)
+
+func _exit_tree():
+	# Para todos os sons ao sair da cena para evitar que continuem tocando
+	recarregando_sfx.stop()
+	atirando.stop()
+	sfx_noammo.stop()
