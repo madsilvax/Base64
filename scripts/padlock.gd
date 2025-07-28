@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 var button1 = false
 var button2 = false
@@ -13,8 +13,11 @@ var button9 = false
 var password = [true, true, true, false, true, false, false, true, false]
 var minigame = [button1, button2, button3, button4, button5, button6, button7, button8, button9]
 
+signal padlock_over
+
 func _process(delta: float) -> void:
 	if minigame == password :
+		emit_signal("padlock_over")
 		queue_free()
 
 func _on_button_1_toggled(toggled_on: bool) -> void:

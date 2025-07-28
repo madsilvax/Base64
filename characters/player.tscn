@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://dmhqu78ijk2qe"]
+[gd_scene load_steps=55 format=3 uid="uid://dmhqu78ijk2qe"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_jn3sm"]
 [ext_resource type="Texture2D" uid="uid://dqtet1q7svwap" path="res://assets/characters/Player/Players/players green x2.png" id="1_yi5q6"]
@@ -195,8 +195,25 @@ radius = 3.0
 height = 24.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_30fj1"]
-radius = 17.0
-height = 36.0
+height = 20.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_a4tv7"]
+blend_mode = 3
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_thilt"]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_uhiu5"]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_epk0d"]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4drrn"]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_xdt04"]
+blend_mode = 1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g0wnp"]
 shader = ExtResource("4_f2ig3")
@@ -267,21 +284,6 @@ _data = {
 "blur": SubResource("Animation_cwgyy")
 }
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_thilt"]
-blend_mode = 1
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_uhiu5"]
-blend_mode = 1
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_epk0d"]
-blend_mode = 1
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4drrn"]
-blend_mode = 1
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_xdt04"]
-blend_mode = 1
-
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_jn3sm")
 
@@ -298,7 +300,7 @@ animation = &"padrao_baixo"
 frame_progress = 0.727376
 
 [node name="collision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 16)
+position = Vector2(0, 5)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_2jt7s")
 
@@ -312,11 +314,74 @@ shape = SubResource("CapsuleShape2D_30fj1")
 zoom = Vector2(3, 3)
 script = ExtResource("3_608gm")
 
+[node name="ColorRect" type="ColorRect" parent="camera"]
+self_modulate = Color(0.803147, 0.368581, 0.0795053, 1)
+z_index = 1
+material = SubResource("CanvasItemMaterial_a4tv7")
+offset_left = -320.0
+offset_top = -180.0
+offset_right = 320.0
+offset_bottom = 180.0
+
+[node name="sfx_recarregar" type="AudioStreamPlayer2D" parent="."]
+process_mode = 1
+
+[node name="sfx_atirar" type="AudioStreamPlayer2D" parent="."]
+process_mode = 1
+stream = ExtResource("7_7o1cv")
+volume_db = -12.876
+
+[node name="sfx_dano" type="AudioStreamPlayer2D" parent="."]
+process_mode = 1
+position = Vector2(0, 1)
+
+[node name="Asset16" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("CanvasItemMaterial_thilt")
+position = Vector2(-1, 1)
+scale = Vector2(0.110838, 0.110838)
+texture = ExtResource("13_xdv6d")
+
+[node name="LuzBlur" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("CanvasItemMaterial_uhiu5")
+position = Vector2(-1, 5)
+scale = Vector2(0.395246, 0.395246)
+texture = ExtResource("14_ijsgu")
+
+[node name="LuzBlurPreto" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("CanvasItemMaterial_epk0d")
+position = Vector2(0, 1)
+scale = Vector2(0.378868, 0.378868)
+texture = ExtResource("15_i6vpy")
+
+[node name="Preto" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("CanvasItemMaterial_4drrn")
+position = Vector2(-1, 1)
+scale = Vector2(0.110713, 0.110713)
+texture = ExtResource("14_y4t31")
+
+[node name="LuzBlurMelhor" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("CanvasItemMaterial_xdt04")
+position = Vector2(4.76837e-07, 2)
+scale = Vector2(0.302558, 0.302558)
+texture = ExtResource("17_kb2s3")
+
+[node name="LuzBlurPreto2" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.94902)
+position = Vector2(1, 16)
+scale = Vector2(0.0404551, 0.00947299)
+texture = ExtResource("15_i6vpy")
+
 [node name="UI player" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 1.33514e-05
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -325,7 +390,7 @@ theme = ExtResource("4_5724h")
 script = ExtResource("4_kri8k")
 
 [node name="UI layer" type="CanvasLayer" parent="UI player"]
-layer = 128
+layer = 0
 
 [node name="hud" type="Control" parent="UI player/UI layer"]
 layout_mode = 3
@@ -401,59 +466,6 @@ theme = ExtResource("10_8ma6q")
 libraries = {
 "": SubResource("AnimationLibrary_dgyao")
 }
-
-[node name="sfx_recarregar" type="AudioStreamPlayer2D" parent="."]
-process_mode = 1
-
-[node name="sfx_atirar" type="AudioStreamPlayer2D" parent="."]
-process_mode = 1
-stream = ExtResource("7_7o1cv")
-volume_db = -12.876
-
-[node name="sfx_dano" type="AudioStreamPlayer2D" parent="."]
-process_mode = 1
-position = Vector2(0, 1)
-
-[node name="Asset16" type="Sprite2D" parent="."]
-visible = false
-material = SubResource("CanvasItemMaterial_thilt")
-position = Vector2(-1, 1)
-scale = Vector2(0.110838, 0.110838)
-texture = ExtResource("13_xdv6d")
-
-[node name="LuzBlur" type="Sprite2D" parent="."]
-visible = false
-material = SubResource("CanvasItemMaterial_uhiu5")
-position = Vector2(-1, 5)
-scale = Vector2(0.395246, 0.395246)
-texture = ExtResource("14_ijsgu")
-
-[node name="LuzBlurPreto" type="Sprite2D" parent="."]
-visible = false
-material = SubResource("CanvasItemMaterial_epk0d")
-position = Vector2(0, 1)
-scale = Vector2(0.378868, 0.378868)
-texture = ExtResource("15_i6vpy")
-
-[node name="Preto" type="Sprite2D" parent="."]
-visible = false
-material = SubResource("CanvasItemMaterial_4drrn")
-position = Vector2(-1, 1)
-scale = Vector2(0.110713, 0.110713)
-texture = ExtResource("14_y4t31")
-
-[node name="LuzBlurMelhor" type="Sprite2D" parent="."]
-visible = false
-material = SubResource("CanvasItemMaterial_xdt04")
-position = Vector2(4.76837e-07, 2)
-scale = Vector2(0.302558, 0.302558)
-texture = ExtResource("17_kb2s3")
-
-[node name="LuzBlurPreto2" type="Sprite2D" parent="."]
-self_modulate = Color(1, 1, 1, 0.94902)
-position = Vector2(1, 16)
-scale = Vector2(0.0404551, 0.00947299)
-texture = ExtResource("15_i6vpy")
 
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="area_exited" from="hurtbox" to="." method="_on_hurtbox_area_exited"]
