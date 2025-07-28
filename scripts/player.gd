@@ -9,6 +9,8 @@ class_name Player
 @export var intensidade_tremer_camera: float = 0.3
 @onready var area_detecao: Area2D = $AreaDetecao
 @onready var life_sprite: Sprite2D = $"UI player/UI layer/hud/life"
+@export var projectile_scene: PackedScene
+@onready var shoot_point = $ShootPoint
 
 # Sons
 @onready var recarregando_sfx: AudioStreamPlayer2D = $sfx_recarregar
@@ -91,6 +93,20 @@ func shoot():
 	sprite_animado.play("atirando")
 	atirando.play()
 	municao -= 1
+	
+	#Instancia o projétil
+	var projectile = projectile_scene.instantiate()
+	get_tree().current_scene.add_child(projectile)
+	
+	#Define a posição e direção
+	projectile.global_position = shoot_point.global_position
+	
+	#Decide a direção baseada no flip horizontal
+	var dir = Vector2.RIGHT
+	if sprite_animado.flip_h:
+		dir = Vector2.LEFT
+	projectile.direction = dir
+	projectile.rotation = dir.angle()
 	
 	# Espera a animação terminar
 	await sprite_animado.animation_finished

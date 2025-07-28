@@ -10,3 +10,10 @@ func _ready():
 func _physics_process(delta):
 	velocity = direction * speed
 	move_and_slide()
+	
+	var collision = move_and_collide(direction * speed * delta)
+	if collision:
+		queue_free()
+
+func _on_life_timer_timeout():
+	queue_free()

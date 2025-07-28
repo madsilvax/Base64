@@ -40,19 +40,27 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fodpl"]
-size = Vector2(20, 6)
+size = Vector2(16, 5)
 
-[node name="Gun" type="CharacterBody2D"]
+[node name="Projectile" type="CharacterBody2D"]
 script = ExtResource("1_qg3fh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.796875, 0.796875)
 sprite_frames = SubResource("SpriteFrames_11dgi")
 animation = &"projetil"
 frame = 3
 frame_progress = 0.342258
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_fodpl")
 
 [node name="Node2D" type="Node2D" parent="."]
+
+[node name="LifeTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="LifeTimer" to="." method="_on_life_timer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://dmhqu78ijk2qe"]
+[gd_scene load_steps=56 format=3 uid="uid://dmhqu78ijk2qe"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_jn3sm"]
 [ext_resource type="Texture2D" uid="uid://dqtet1q7svwap" path="res://assets/characters/Player/Players/players green x2.png" id="1_yi5q6"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://bhk1j5c1sak76" path="res://LUZ BLUR PRETO.png" id="15_i6vpy"]
 [ext_resource type="Texture2D" uid="uid://sj521tp4i7qk" path="res://LUZ BLUR MELHOR.png" id="17_kb2s3"]
 [ext_resource type="Texture2D" uid="uid://d0h26p6gq0jw3" path="res://AQUIII BLUR.png" id="18_06b1x"]
+[ext_resource type="PackedScene" uid="uid://r1iybdsk1gf8" path="res://screens/Projectile.tscn" id="19_j4l22"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_kalgc"]
 blend_mode = 1
@@ -286,6 +287,7 @@ _data = {
 
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_jn3sm")
+projectile_scene = ExtResource("19_j4l22")
 
 [node name="AquiiiBlur" type="Sprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_kalgc")
@@ -466,6 +468,11 @@ theme = ExtResource("10_8ma6q")
 libraries = {
 "": SubResource("AnimationLibrary_dgyao")
 }
+
+[node name="ShootPoint" type="Marker2D" parent="."]
+gizmo_extents = 0.0
+
+[node name="Projectile" parent="." instance=ExtResource("19_j4l22")]
 
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="area_exited" from="hurtbox" to="." method="_on_hurtbox_area_exited"]

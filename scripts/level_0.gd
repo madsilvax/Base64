@@ -16,6 +16,7 @@ func _ready():
 	$Ysort/player/padlock.connect("padlock_over", open_door)
 	soundtrack_level0.play()
 	timer_sussurros.start()
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 func _input(event):
 	if Input.is_action_just_pressed("interagir"):
