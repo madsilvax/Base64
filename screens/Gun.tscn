@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://bifxlko062c2r"]
+[gd_scene load_steps=9 format=3 uid="uid://r1iybdsk1gf8"]
 
+[ext_resource type="Script" path="res://scripts/gun.gd" id="1_qg3fh"]
 [ext_resource type="Texture2D" uid="uid://dr4ipent5khtw" path="res://assets/Projectiles/projectiles x2.png" id="1_xfc4u"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dd42r"]
@@ -41,18 +42,17 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fodpl"]
 size = Vector2(20, 6)
 
-[node name="Gun" type="Node2D"]
+[node name="Gun" type="CharacterBody2D"]
+script = ExtResource("1_qg3fh")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_11dgi")
 animation = &"projetil"
 frame = 3
 frame_progress = 0.342258
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_fodpl")
 
-[node name="Node2D" type="Node2D" parent="CharacterBody2D"]
+[node name="Node2D" type="Node2D" parent="."]
