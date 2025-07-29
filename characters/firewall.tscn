@@ -1,9 +1,10 @@
-[gd_scene load_steps=47 format=3 uid="uid://c0frrqb7dbvt1"]
+[gd_scene load_steps=48 format=3 uid="uid://c0frrqb7dbvt1"]
 
 [ext_resource type="Script" path="res://scripts/firewall.gd" id="1_ldkcr"]
 [ext_resource type="Texture2D" uid="uid://i8e25ebgtp8i" path="res://assets/characters/Boss/boss x2.png" id="2_xtk5o"]
 [ext_resource type="AudioStream" uid="uid://cbyyy5mr7ttlu" path="res://assets/sounds/sfx/laser_firewall2.wav" id="3_f6r4i"]
 [ext_resource type="AudioStream" uid="uid://iftwoto25etd" path="res://assets/sounds/sfx/death_firewall.wav" id="4_s0ley"]
+[ext_resource type="PackedScene" uid="uid://clu4k1da2gych" path="res://screens/Projectile_firewall.tscn" id="5_5e6w7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qq1xr"]
 atlas = ExtResource("2_xtk5o")
@@ -307,35 +308,42 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m3x3p"]
-radius = 15.9999
-height = 49.9998
+radius = 8.00287
+height = 39.2535
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fowc0"]
-size = Vector2(83, 67)
+size = Vector2(80, 51)
 
-[node name="Firewall" type="CharacterBody2D"]
+[node name="Firewall" type="CharacterBody2D" groups=["inimigo"]]
+collision_mask = 2
 script = ExtResource("1_ldkcr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-3, -12)
-scale = Vector2(0.707031, 0.707031)
+position = Vector2(-0.5, -17.5)
+scale = Vector2(0.539063, 0.539063)
 sprite_frames = SubResource("SpriteFrames_x5s44")
-animation = &"idle"
-frame_progress = 0.249355
+animation = &"fast_shoot"
+
+[node name="Node2D" type="Node2D" parent="."]
 
 [node name="collision" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 16)
+position = Vector2(-1, 7)
 rotation = 1.5737
 shape = SubResource("CapsuleShape2D_m3x3p")
 
-[node name="hurtbox" type="Area2D" parent="."]
+[node name="hitbox" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
-position = Vector2(1.5, 0.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(3, -3.5)
 shape = SubResource("RectangleShape2D_fowc0")
 
 [node name="sfx_atirar" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-0.375, -13.375)
 stream = ExtResource("3_f6r4i")
 
 [node name="sfx_death" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-0.375, -13.375)
 stream = ExtResource("4_s0ley")
+
+[node name="Projectile" parent="." instance=ExtResource("5_5e6w7")]
+collision_layer = 2

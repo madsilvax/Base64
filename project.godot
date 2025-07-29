@@ -27,6 +27,8 @@ mouse_cursor/custom_image="res://assets/UI/MOUSEEE.png"
 [global_group]
 
 camera=""
+projetil=""
+inimigo=""
 
 [input]
 

@@ -195,8 +195,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cjv0h"]
-radius = 26.0
-height = 52.0
+radius = 17.0
+height = 62.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6dhws"]
 size = Vector2(52, 58)
@@ -205,10 +205,13 @@ size = Vector2(52, 58)
 script = ExtResource("1_mf7a7")
 
 [node name="anim_kernel" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -22)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_cjing")
 animation = &"idle"
 
 [node name="collision" type="CollisionShape2D" parent="."]
+rotation = 1.57877
 shape = SubResource("CapsuleShape2D_cjv0h")
 
 [node name="hurtbox" type="Area2D" parent="."]
@@ -222,3 +225,4 @@ shape = SubResource("RectangleShape2D_6dhws")
 [node name="sfx_atirar" type="AudioStreamPlayer2D" parent="."]
 
 [node name="sfx_dano" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0, -1)

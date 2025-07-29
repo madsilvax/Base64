@@ -5,7 +5,8 @@ var direction: Vector2 = Vector2.ZERO
 
 func _ready():
 	# O sprite pode ter uma animação de voo, se quiser
-	$AnimatedSprite2D.play("projetil")
+	$AnimatedSprite2D.play()
+	add_to_group("projetil")
 
 func _physics_process(delta):
 	velocity = direction * speed
