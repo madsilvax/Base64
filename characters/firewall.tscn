@@ -308,26 +308,27 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m3x3p"]
-radius = 8.00287
-height = 39.2535
+radius = 18.0028
+height = 73.9997
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fowc0"]
 size = Vector2(80, 51)
 
 [node name="Firewall" type="CharacterBody2D" groups=["inimigo"]]
-collision_mask = 2
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_ldkcr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-0.5, -17.5)
 scale = Vector2(0.539063, 0.539063)
 sprite_frames = SubResource("SpriteFrames_x5s44")
-animation = &"fast_shoot"
+animation = &"death"
 
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="collision" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 7)
+position = Vector2(4, 4)
 rotation = 1.5737
 shape = SubResource("CapsuleShape2D_m3x3p")
 
@@ -338,11 +339,9 @@ position = Vector2(3, -3.5)
 shape = SubResource("RectangleShape2D_fowc0")
 
 [node name="sfx_atirar" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(-0.375, -13.375)
 stream = ExtResource("3_f6r4i")
 
 [node name="sfx_death" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(-0.375, -13.375)
 stream = ExtResource("4_s0ley")
 
 [node name="Projectile" parent="." instance=ExtResource("5_5e6w7")]

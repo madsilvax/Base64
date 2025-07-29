@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://lnj6sipa5bm8"]
 
 [ext_resource type="Script" path="res://scripts/minigame.gd" id="1_5627g"]
-[ext_resource type="Texture2D" uid="uid://eniwgp637mpv" path="res://assets/minigame/padlock/background.png" id="2_jho1o"]
+[ext_resource type="Texture2D" path="res://assets/minigame/padlock/background.png" id="2_jho1o"]
 
 [node name="minigame" type="Control"]
 process_mode = 3

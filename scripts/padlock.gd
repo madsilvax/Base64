@@ -19,6 +19,8 @@ func _process(delta: float) -> void:
 	if minigame == password :
 		emit_signal("padlock_over")
 		queue_free()
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+
 
 func _on_button_1_toggled(toggled_on: bool) -> void:
 	if toggled_on == true:
@@ -82,3 +84,9 @@ func _on_button_9_toggled(toggled_on: bool) -> void:
 	if toggled_on == false:
 		button9 = false
 	minigame = [button1, button2, button3, button4, button5, button6, button7, button8, button9]
+
+
+func _on_sair_pressed() -> void:
+	$".".hide()
+	get_tree().paused = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)

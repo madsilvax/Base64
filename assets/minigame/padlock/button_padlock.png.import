@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctliaype4q2l5"
-path="res://.godot/imported/num0.png-4842399e81d0867c9c1d845fbf376edc.ctex"
+uid="uid://cgqdvx2co8d44"
+path="res://.godot/imported/button_padlock.png-51a57ee98df116176b39db8d9ed62171.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/minigame/padlock/num0.png"
-dest_files=["res://.godot/imported/num0.png-4842399e81d0867c9c1d845fbf376edc.ctex"]
+source_file="res://assets/minigame/padlock/button_padlock.png"
+dest_files=["res://.godot/imported/button_padlock.png-51a57ee98df116176b39db8d9ed62171.ctex"]
 
 [params]
 

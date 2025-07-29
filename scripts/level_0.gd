@@ -23,9 +23,11 @@ func _input(event):
 		if player_minigame == true:
 			get_tree().paused = true
 			$Ysort/player/minigame.show()
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		if player_padlock == true:
 			get_tree().paused = true
 			$Ysort/player/padlock.show()
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func _on_timer_inicio_timeout():
 	timer_sussurros.wait_time = randf_range(4.0, 8.0)

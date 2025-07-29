@@ -1492,7 +1492,7 @@ expand_margin_bottom = 2.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vtw4c"]
 texture = ExtResource("1_egdpb")
-region_rect = Rect2(633, 634, 1794, 796)
+region_rect = Rect2(633, 634, 1773.91, 796)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gydw1"]
 texture = ExtResource("1_plvau")

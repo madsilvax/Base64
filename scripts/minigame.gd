@@ -8,6 +8,8 @@ func _process(delta: float) -> void:
 	if virus == 0:
 		emit_signal("minigame_over")
 		queue_free()
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+
 
 func _on_button_pressed() -> void:
 	$screen/Button.queue_free()

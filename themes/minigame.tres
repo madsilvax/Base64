@@ -1,12 +1,21 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://f7e0gm4035bk"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://f7e0gm4035bk"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ofatv"]
+[ext_resource type="Texture2D" uid="uid://cgqdvx2co8d44" path="res://assets/minigame/padlock/button_padlock.png" id="1_j02qc"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0yxfw"]
-bg_color = Color(1, 1, 1, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2qqwn"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_71k3i"]
-bg_color = Color(0.335938, 1, 0, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_td2h1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vqhwq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fbqvm"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n6uw0"]
+texture = ExtResource("1_j02qc")
+expand_margin_left = 15.0
+expand_margin_top = 13.0
+expand_margin_right = 19.0
+expand_margin_bottom = 22.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b3n1m"]
 
@@ -27,13 +36,15 @@ Button/colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
 Button/colors/icon_normal_color = Color(0, 0, 0, 0)
 Button/colors/icon_pressed_color = Color(0, 0, 0, 0)
 Button/font_sizes/font_size = 48
-Button/styles/focus = SubResource("StyleBoxEmpty_ofatv")
-Button/styles/normal = SubResource("StyleBoxFlat_0yxfw")
-Button/styles/pressed = SubResource("StyleBoxFlat_71k3i")
-HBoxContainer/constants/separation = 16
+Button/styles/disabled = SubResource("StyleBoxEmpty_2qqwn")
+Button/styles/focus = SubResource("StyleBoxEmpty_td2h1")
+Button/styles/hover = SubResource("StyleBoxEmpty_vqhwq")
+Button/styles/normal = SubResource("StyleBoxEmpty_fbqvm")
+Button/styles/pressed = SubResource("StyleBoxTexture_n6uw0")
+HBoxContainer/constants/separation = 20
 HSeparator/constants/separation = 0
 HSeparator/styles/separator = SubResource("StyleBoxEmpty_b3n1m")
 Label/font_sizes/font_size = 42
-VBoxContainer/constants/separation = 16
+VBoxContainer/constants/separation = 20
 VSeparator/constants/separation = 0
 VSeparator/styles/separator = SubResource("StyleBoxEmpty_ixgpa")

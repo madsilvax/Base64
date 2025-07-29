@@ -194,7 +194,6 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2jt7s"]
-radius = 3.0
 height = 24.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_30fj1"]
@@ -288,6 +287,7 @@ _data = {
 }
 
 [node name="player" type="CharacterBody2D"]
+collision_mask = 255
 script = ExtResource("1_jn3sm")
 projectile_scene = ExtResource("19_j4l22")
 
@@ -304,7 +304,7 @@ animation = &"padrao_baixo"
 frame_progress = 0.727376
 
 [node name="collision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 5)
+position = Vector2(0, 14)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_2jt7s")
 
