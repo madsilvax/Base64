@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://lnj6sipa5bm8"]
+[gd_scene load_steps=5 format=3 uid="uid://lnj6sipa5bm8"]
 
 [ext_resource type="Script" path="res://scripts/minigame.gd" id="1_5627g"]
-[ext_resource type="Texture2D" path="res://assets/minigame/padlock/background.png" id="2_jho1o"]
+[ext_resource type="Texture2D" uid="uid://dvb7wnuvnk2n1" path="res://assets/minigame/terminal/monitor.png" id="2_mpvtj"]
+[ext_resource type="Theme" uid="uid://f7e0gm4035bk" path="res://themes/minigame.tres" id="3_8l4v5"]
+[ext_resource type="Texture2D" uid="uid://cbdvgr6awoj82" path="res://assets/minigame/terminal/virus.png" id="4_gl4tb"]
 
 [node name="minigame" type="Control"]
 process_mode = 3
@@ -20,115 +22,184 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.784314)
+color = Color(0.960784, 0, 0, 0.784314)
 
 [node name="screen" type="TextureRect" parent="."]
 process_mode = 3
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -256.0
-offset_top = -309.0
-offset_right = 256.0
-offset_bottom = 309.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 510.0
+offset_top = 240.0
+offset_right = 1590.0
+offset_bottom = 1160.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_jho1o")
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_mpvtj")
 
 [node name="Button" type="Button" parent="screen"]
 process_mode = 3
 layout_mode = 0
-offset_left = 12.0
-offset_top = 2.0
-offset_right = 190.0
-offset_bottom = 116.0
+offset_left = 213.333
+offset_top = 400.0
+offset_right = 313.333
+offset_bottom = 475.0
+scale = Vector2(3, 3)
+theme = ExtResource("3_8l4v5")
 
 [node name="Sprite2D" type="Sprite2D" parent="screen/Button"]
+position = Vector2(50, 37)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_gl4tb")
+region_enabled = true
+region_rect = Rect2(441.652, 869.26, 330.078, 245.549)
 
 [node name="Button2" type="Button" parent="screen"]
 process_mode = 3
 layout_mode = 0
-offset_left = 241.0
-offset_top = 449.0
-offset_right = 419.0
-offset_bottom = 563.0
+offset_left = 1003.33
+offset_top = 410.0
+offset_right = 1103.33
+offset_bottom = 485.0
+scale = Vector2(3, 3)
+theme = ExtResource("3_8l4v5")
 
 [node name="Sprite2D" type="Sprite2D" parent="screen/Button2"]
+position = Vector2(50, 37)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_gl4tb")
+region_enabled = true
+region_rect = Rect2(441.652, 869.26, 330.078, 245.549)
 
 [node name="Button3" type="Button" parent="screen"]
 layout_mode = 0
-offset_left = 18.0
-offset_top = 454.0
-offset_right = 196.0
-offset_bottom = 568.0
+offset_left = 2126.67
+offset_top = 423.333
+offset_right = 2226.67
+offset_bottom = 498.333
+scale = Vector2(3, 3)
+theme = ExtResource("3_8l4v5")
 
 [node name="Sprite2D" type="Sprite2D" parent="screen/Button3"]
+position = Vector2(50, 37)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_gl4tb")
+region_enabled = true
+region_rect = Rect2(441.652, 869.26, 330.078, 245.549)
 
 [node name="Button4" type="Button" parent="screen"]
 layout_mode = 0
-offset_left = 266.0
-offset_top = 331.0
-offset_right = 444.0
-offset_bottom = 445.0
+offset_left = 636.667
+offset_top = 766.667
+offset_right = 736.667
+offset_bottom = 841.667
+scale = Vector2(3, 3)
+theme = ExtResource("3_8l4v5")
 
 [node name="Sprite2D" type="Sprite2D" parent="screen/Button4"]
+position = Vector2(50, 37)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_gl4tb")
+region_enabled = true
+region_rect = Rect2(441.652, 869.26, 330.078, 245.549)
 
 [node name="Button5" type="Button" parent="screen"]
 layout_mode = 0
-offset_left = 15.0
-offset_top = 340.0
-offset_right = 193.0
-offset_bottom = 454.0
+offset_left = 1643.33
+offset_top = 643.333
+offset_right = 1743.33
+offset_bottom = 718.333
+scale = Vector2(3, 3)
+theme = ExtResource("3_8l4v5")
 
 [node name="Sprite2D" type="Sprite2D" parent="screen/Button5"]
+position = Vector2(50, 37)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_gl4tb")
+region_enabled = true
+region_rect = Rect2(441.652, 869.26, 330.078, 245.549)
 
 [node name="Button6" type="Button" parent="screen"]
 layout_mode = 0
-offset_left = 241.0
-offset_top = 231.0
-offset_right = 419.0
-offset_bottom = 345.0
+offset_left = 1263.33
+offset_top = 923.333
+offset_right = 1363.33
+offset_bottom = 998.333
+scale = Vector2(3, 3)
+theme = ExtResource("3_8l4v5")
 
 [node name="Sprite2D" type="Sprite2D" parent="screen/Button6"]
+position = Vector2(50, 37)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_gl4tb")
+region_enabled = true
+region_rect = Rect2(441.652, 869.26, 330.078, 245.549)
 
 [node name="Button7" type="Button" parent="screen"]
 layout_mode = 0
-offset_left = 22.0
-offset_top = 230.0
-offset_right = 200.0
-offset_bottom = 344.0
+offset_left = 2296.67
+offset_top = 963.333
+offset_right = 2396.67
+offset_bottom = 1038.33
+scale = Vector2(3, 3)
+theme = ExtResource("3_8l4v5")
 
 [node name="Sprite2D" type="Sprite2D" parent="screen/Button7"]
+position = Vector2(50, 37)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_gl4tb")
+region_enabled = true
+region_rect = Rect2(441.652, 869.26, 330.078, 245.549)
 
 [node name="Button8" type="Button" parent="screen"]
 layout_mode = 0
-offset_left = 240.0
-offset_top = 116.0
-offset_right = 418.0
-offset_bottom = 230.0
+offset_left = 473.333
+offset_top = 1223.33
+offset_right = 573.333
+offset_bottom = 1298.33
+scale = Vector2(3, 3)
+theme = ExtResource("3_8l4v5")
 
 [node name="Sprite2D" type="Sprite2D" parent="screen/Button8"]
+position = Vector2(50, 37)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_gl4tb")
+region_enabled = true
+region_rect = Rect2(441.652, 869.26, 330.078, 245.549)
 
 [node name="Button9" type="Button" parent="screen"]
 layout_mode = 0
-offset_left = 16.0
-offset_top = 116.0
-offset_right = 194.0
-offset_bottom = 230.0
+offset_left = 1113.33
+offset_top = 1323.33
+offset_right = 1213.33
+offset_bottom = 1398.33
+scale = Vector2(3, 3)
+theme = ExtResource("3_8l4v5")
 
 [node name="Sprite2D" type="Sprite2D" parent="screen/Button9"]
+position = Vector2(50, 37)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_gl4tb")
+region_enabled = true
+region_rect = Rect2(441.652, 869.26, 330.078, 245.549)
 
 [node name="Button10" type="Button" parent="screen"]
 layout_mode = 0
-offset_left = 234.0
-offset_top = 2.0
-offset_right = 412.0
-offset_bottom = 116.0
+offset_left = 1843.33
+offset_top = 1240.0
+offset_right = 1943.33
+offset_bottom = 1315.0
+scale = Vector2(3, 3)
+theme = ExtResource("3_8l4v5")
 
 [node name="Sprite2D" type="Sprite2D" parent="screen/Button10"]
+position = Vector2(50, 37)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_gl4tb")
+region_enabled = true
+region_rect = Rect2(441.652, 869.26, 330.078, 245.549)
 
 [connection signal="pressed" from="screen/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="screen/Button2" to="." method="_on_button_2_pressed"]

@@ -52,14 +52,6 @@ func _on_timer_sussurros_timeout():
 	timer_sussurros.wait_time = randf_range(4.0, 10.0)
 	timer_sussurros.start()
 
-func _on_screen_area_body_entered(body: Node2D) -> void:
-	if body.name == "player":
-		player_minigame = true
-
-func _on_screen_area_body_exited(body: Node2D) -> void:
-	if body.name == "player":
-		player_minigame = false
-
 func open_door():
 	get_tree().paused = false
 	$Ysort/Door/block.queue_free()
@@ -67,16 +59,31 @@ func open_door():
 	$Ysort/player/padlock.queue_free()
 	$Ysort/Screen/screen_area.queue_free()
 	$Ysort/Door/door_area.queue_free()
-	$Ysort/Screen.play("off")
+	$Ysort/Screen.play("on")
 	$Ysort/Door.play("open")
+	$Ysort/Door/E.queue_free()
+	$Ysort/Screen/E.queue_free()
+
+func _on_screen_area_body_entered(body: Node2D) -> void:
+	if body.name == "player":
+		player_minigame = true
+		$Ysort/Screen/E.show()
+
+func _on_screen_area_body_exited(body: Node2D) -> void:
+	if body.name == "player":
+		player_minigame = false
+		$Ysort/Screen/E.hide()
 
 func _on_door_area_body_entered(body: Node2D) -> void:
 	if body.name == "player":
 		player_padlock = true
+		$Ysort/Door/E.show()
 
 func _on_door_area_body_exited(body: Node2D) -> void:
 	if body.name == "player":
 		player_padlock = false
+		$Ysort/Door/E.show().hide
+
 
 func _on_end_body_entered(body: Node2D) -> void:
 	pass #trocar cena / fim do jogo

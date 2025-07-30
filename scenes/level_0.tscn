@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://dheqygifoinl1"]
+[gd_scene load_steps=34 format=4 uid="uid://dheqygifoinl1"]
 
 [ext_resource type="Script" path="res://scripts/level_0.gd" id="1_debah"]
 [ext_resource type="PackedScene" uid="uid://dmhqu78ijk2qe" path="res://characters/player.tscn" id="1_t1tgu"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://dxnnoudqbevkf" path="res://assets/sounds/sfx/mechanical_tension.wav" id="4_iaiym"]
 [ext_resource type="Texture2D" uid="uid://dtdwc3sjjk556" path="res://assets/floor and walls/tileset x2.png" id="4_yp5ih"]
 [ext_resource type="PackedScene" uid="uid://dkrsqct367eg5" path="res://assets/Props and Items/tubo_energia.tscn" id="6_ki582"]
+[ext_resource type="Texture2D" uid="uid://chs6dayyh8s7f" path="res://assets/UI/E.png" id="7_ydkti"]
 [ext_resource type="PackedScene" uid="uid://lnj6sipa5bm8" path="res://scenes/minigame.tscn" id="8_qnl46"]
 [ext_resource type="PackedScene" uid="uid://b2ngl1siuokub" path="res://scenes/padlock.tscn" id="9_xm8yx"]
 [ext_resource type="PackedScene" uid="uid://c0frrqb7dbvt1" path="res://characters/firewall.tscn" id="10_78sqt"]
@@ -911,7 +912,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_et06k"]
-size = Vector2(90, 30)
+size = Vector2(94, 30)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ygahe"]
 
@@ -952,6 +953,12 @@ animation = &"closed"
 autoplay = "closed"
 frame_progress = 0.0561059
 
+[node name="E" type="Sprite2D" parent="Ysort/Door"]
+visible = false
+position = Vector2(0, -44)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("7_ydkti")
+
 [node name="door_area" type="Area2D" parent="Ysort/Door"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ysort/Door/door_area"]
@@ -973,14 +980,19 @@ shape = SubResource("RectangleShape2D_ow41c")
 [node name="Screen" type="AnimatedSprite2D" parent="Ysort"]
 position = Vector2(384, -704)
 sprite_frames = SubResource("SpriteFrames_ou7yt")
-animation = &"on"
-autoplay = "on"
-frame_progress = 0.840651
+animation = &"off"
+autoplay = "off"
+
+[node name="E" type="Sprite2D" parent="Ysort/Screen"]
+visible = false
+position = Vector2(0, -44)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("7_ydkti")
 
 [node name="screen_area" type="Area2D" parent="Ysort/Screen"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ysort/Screen/screen_area"]
-position = Vector2(3, 47)
+position = Vector2(1, 47)
 shape = SubResource("RectangleShape2D_et06k")
 
 [node name="Firewall" parent="Ysort" instance=ExtResource("10_78sqt")]
@@ -990,7 +1002,7 @@ collision_mask = 1
 
 [node name="player" parent="Ysort" instance=ExtResource("1_t1tgu")]
 material = SubResource("CanvasItemMaterial_ygahe")
-position = Vector2(-479, 250)
+position = Vector2(367, -606)
 
 [node name="minigame" parent="Ysort/player" instance=ExtResource("8_qnl46")]
 visible = false
