@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://clu4k1da2gych"]
 
-[ext_resource type="Script" path="res://scripts/gun.gd" id="1_cgxj2"]
+[ext_resource type="Script" path="res://scripts/projectile_firewall.gd" id="1_bp76a"]
 [ext_resource type="Texture2D" uid="uid://dr4ipent5khtw" path="res://assets/Projectiles/projectiles x2.png" id="2_6gwg6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fgt80"]
@@ -45,8 +45,8 @@ size = Vector2(17, 17)
 [sub_resource type="CircleShape2D" id="CircleShape2D_8krm8"]
 radius = 18.0
 
-[node name="Projectile" type="CharacterBody2D" groups=["projetil"]]
-script = ExtResource("1_cgxj2")
+[node name="Projectile_firewall" type="CharacterBody2D" groups=["projetil"]]
+script = ExtResource("1_bp76a")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-4.76837e-07, -2)

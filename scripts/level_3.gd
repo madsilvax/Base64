@@ -82,8 +82,7 @@ func _on_door_area_body_entered(body: Node2D) -> void:
 func _on_door_area_body_exited(body: Node2D) -> void:
 	if body.name == "player":
 		player_padlock = false
-		$Ysort/Door/E.show().hide
-
+		$Ysort/Door/E.hide()
 
 func _on_end_body_entered(body: Node2D) -> void:
-	pass #trocar cena / fim do jogo
+	get_tree().change_scene_to_file("res://scenes/level_4.tscn")

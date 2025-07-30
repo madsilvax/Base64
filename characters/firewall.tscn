@@ -342,18 +342,18 @@ shape = SubResource("CapsuleShape2D_m3x3p")
 position = Vector2(3, -3.5)
 shape = SubResource("RectangleShape2D_fowc0")
 
-[node name="sfx_atirar" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_f6r4i")
-
-[node name="sfx_death" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_s0ley")
-
 [node name="PlayerDetectionArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectionArea"]
 shape = SubResource("CircleShape2D_rdchy")
 
 [node name="shoot_point" type="Marker2D" parent="."]
+
+[node name="sfx_atirar" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_f6r4i")
+
+[node name="sfx_death" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_s0ley")
 
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="body_entered" from="PlayerDetectionArea" to="." method="_on_player_detection_area_body_entered"]

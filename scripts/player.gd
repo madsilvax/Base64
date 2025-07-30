@@ -167,6 +167,7 @@ func update_life():
 		life_sprite.set_frame(2)
 	if vida_atual == 0:
 		life_sprite.set_frame(1)
+		morrer()
 
 func _exit_tree():
 	# Para todos os sons ao sair da cena para evitar que continuem tocando
@@ -187,4 +188,4 @@ func morrer():
 	
 	sprite_animado.play("morte")
 	await get_tree().create_timer(2).timeout
-	get_tree().change_scene_to_file("res://scenes/level_0.tscn")
+	get_tree().reload_current_scene()
