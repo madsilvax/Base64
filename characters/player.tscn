@@ -286,8 +286,7 @@ _data = {
 "blur": SubResource("Animation_cwgyy")
 }
 
-[node name="player" type="CharacterBody2D"]
-collision_mask = 255
+[node name="player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_jn3sm")
 projectile_scene = ExtResource("19_j4l22")
 
@@ -476,9 +475,11 @@ libraries = {
 }
 
 [node name="ShootPoint" type="Marker2D" parent="."]
+position = Vector2(31, 0)
 gizmo_extents = 0.0
 
 [node name="Projectile" parent="." instance=ExtResource("19_j4l22")]
+position = Vector2(-42, -22)
 
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="area_exited" from="hurtbox" to="." method="_on_hurtbox_area_exited"]

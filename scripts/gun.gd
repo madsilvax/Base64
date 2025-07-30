@@ -6,7 +6,7 @@ var direction: Vector2 = Vector2.ZERO
 func _ready():
 	# O sprite pode ter uma animação de voo, se quiser
 	$AnimatedSprite2D.play()
-	add_to_group("projetil")
+	
 
 func _physics_process(delta):
 	velocity = direction * speed
@@ -18,3 +18,8 @@ func _physics_process(delta):
 
 func _on_life_timer_timeout():
 	queue_free()
+
+
+func _on_enemy_detection_area_body_entered(body):
+	if body.has_method("morrer"):
+		body.morrer()

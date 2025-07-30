@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://c0frrqb7dbvt1"]
+[gd_scene load_steps=49 format=3 uid="uid://c0frrqb7dbvt1"]
 
 [ext_resource type="Script" path="res://scripts/firewall.gd" id="1_ldkcr"]
 [ext_resource type="Texture2D" uid="uid://i8e25ebgtp8i" path="res://assets/characters/Boss/boss x2.png" id="2_xtk5o"]
@@ -192,7 +192,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_o3x03")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 5.0
 }, {
@@ -309,10 +309,13 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m3x3p"]
 radius = 18.0028
-height = 73.9997
+height = 53.9998
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fowc0"]
 size = Vector2(80, 51)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rdchy"]
+radius = 371.303
 
 [node name="Firewall" type="CharacterBody2D" groups=["inimigo"]]
 collision_layer = 2
@@ -345,4 +348,12 @@ stream = ExtResource("3_f6r4i")
 stream = ExtResource("4_s0ley")
 
 [node name="Projectile" parent="." instance=ExtResource("5_5e6w7")]
-collision_layer = 2
+
+[node name="PlayerDetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectionArea"]
+shape = SubResource("CircleShape2D_rdchy")
+
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_entered" from="PlayerDetectionArea" to="." method="_on_player_detection_area_body_entered"]
+[connection signal="body_exited" from="PlayerDetectionArea" to="." method="_on_player_detection_area_body_exited"]

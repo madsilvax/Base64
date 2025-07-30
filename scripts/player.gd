@@ -175,3 +175,6 @@ func _exit_tree():
 	recarregando_sfx.stop()
 	atirando.stop()
 	sfx_noammo.stop()
+	
+func morrer():
+	get_tree().change_scene_to_file("res://scenes/level_0.tscn")

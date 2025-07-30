@@ -17,14 +17,14 @@ var pode_atirar := true
 
 func _ready():
 	await get_tree().process_frame
-	player = get_tree().get_current_scene().find_child("player", true, false)
+	#player = get_tree().get_current_scene().find_child("player", true, false)
 
 	if player == null:
 		print("⚠️ Player NÃO encontrado!")
 	else:
 		print("✅ Player encontrado: ", player.name)
 
-	hitbox.connect("body_entered", Callable(self, "_on_Hitbox_body_entered"))
+	
 
 
 func _physics_process(delta):
@@ -51,6 +51,7 @@ func _physics_process(delta):
 
 
 func atirar():
+	print("heloo shootingbboi")
 	if not pode_atirar or projectile_scene == null:
 		return
 
@@ -67,15 +68,31 @@ func atirar():
 	pode_atirar = true
 
 
-func _on_Hitbox_body_entered(body):
-	if body.is_in_group("projetil"):
-		print("🔥 Firewall atingido por projétil!")
-		body.queue_free()
-		morrer()
-
 
 func morrer():
+	print("heloo dead boy shootingbboi")
 	velocity = Vector2.ZERO
-	anim.play("death")
 	death.play()
+	anim.play("death")
+	await anim.animation_finished
+	
 	queue_free()
+
+
+func _on_hitbox_body_entered(body):
+	if body.is_in_group("projetil"):
+		print("🔥 Firewall atingido por projétil!")
+		morrer()
+		
+
+func _on_player_detection_area_body_entered(body):
+	if body.is_in_group("player"):
+		var dir = body.global_position - global_position
+		var dist = dir.length()
+		dir = dir.normalized()
+		anim.flip_h = dir.x < 0
+		anim.play("run")
+
+
+func _on_player_detection_area_body_exited(body):
+	pass # Replace with function body.
