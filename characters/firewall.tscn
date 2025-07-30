@@ -315,12 +315,13 @@ height = 53.9998
 size = Vector2(80, 51)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rdchy"]
-radius = 371.303
+radius = 175.345
 
 [node name="Firewall" type="CharacterBody2D" groups=["inimigo"]]
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_ldkcr")
+projectile_scene = ExtResource("5_5e6w7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-0.5, -17.5)
@@ -347,12 +348,12 @@ stream = ExtResource("3_f6r4i")
 [node name="sfx_death" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_s0ley")
 
-[node name="Projectile" parent="." instance=ExtResource("5_5e6w7")]
-
 [node name="PlayerDetectionArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectionArea"]
 shape = SubResource("CircleShape2D_rdchy")
+
+[node name="shoot_point" type="Marker2D" parent="."]
 
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="body_entered" from="PlayerDetectionArea" to="." method="_on_player_detection_area_body_entered"]

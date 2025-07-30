@@ -1,8 +1,9 @@
-[gd_scene load_steps=58 format=3 uid="uid://dmhqu78ijk2qe"]
+[gd_scene load_steps=59 format=3 uid="uid://dmhqu78ijk2qe"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_jn3sm"]
 [ext_resource type="Texture2D" uid="uid://dqtet1q7svwap" path="res://assets/characters/Player/Players/players green x2.png" id="1_yi5q6"]
 [ext_resource type="Script" path="res://scripts/camera_shake.gd" id="3_608gm"]
+[ext_resource type="PackedScene" uid="uid://cwkwfagpg7iw4" path="res://screens/camera_shake.tscn" id="3_mun47"]
 [ext_resource type="Theme" uid="uid://dqd1rercjqtpw" path="res://themes/ui_player.tres" id="4_5724h"]
 [ext_resource type="Shader" path="res://assets/UI/PauseMenu.gdshader" id="4_f2ig3"]
 [ext_resource type="Script" path="res://scripts/ui_player.gd" id="4_kri8k"]
@@ -142,8 +143,11 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8huve")
+}, {
+"duration": 1.0,
+"texture": null
 }],
-"loop": true,
+"loop": false,
 "name": &"morte",
 "speed": 5.0
 }, {
@@ -290,6 +294,8 @@ _data = {
 script = ExtResource("1_jn3sm")
 projectile_scene = ExtResource("19_j4l22")
 
+[node name="Node" parent="." instance=ExtResource("3_mun47")]
+
 [node name="AquiiiBlur" type="Sprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_kalgc")
 position = Vector2(0, 2)
@@ -299,8 +305,7 @@ texture = ExtResource("18_06b1x")
 [node name="anim" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -14)
 sprite_frames = SubResource("SpriteFrames_fu0t6")
-animation = &"padrao_baixo"
-frame_progress = 0.727376
+animation = &"morte"
 
 [node name="collision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 14)
@@ -477,9 +482,6 @@ libraries = {
 [node name="ShootPoint" type="Marker2D" parent="."]
 position = Vector2(31, 0)
 gizmo_extents = 0.0
-
-[node name="Projectile" parent="." instance=ExtResource("19_j4l22")]
-position = Vector2(-42, -22)
 
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="area_exited" from="hurtbox" to="." method="_on_hurtbox_area_exited"]

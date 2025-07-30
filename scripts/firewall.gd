@@ -1,35 +1,28 @@
 extends CharacterBody2D
 
+@onready var shoot_point: Marker2D = $shoot_point
+
 @export var velocidade := 80.0
 @export var distancia_perseguir := 200.0
-@export var distancia_minima := 60.0  # Nova distância mínima para parar e atirar
-@export var projectile_scene: PackedScene  # Cena exportada do projétil
+@export var distancia_minima := 60.0
+@export var projectile_scene: PackedScene
 
 @onready var anim = $AnimatedSprite2D
-@onready var player = null
-
 @onready var death = $sfx_death
 @onready var shoot = $sfx_atirar
 @onready var hitbox = $hitbox
-@onready var shoot_point = $shoot_point  # Node2D/Marker2D onde o projétil nasce
 
+var morto := false
+var player: Node2D = null
 var pode_atirar := true
 
-func _ready():
-	await get_tree().process_frame
-	#player = get_tree().get_current_scene().find_child("player", true, false)
-
-	if player == null:
-		print("⚠️ Player NÃO encontrado!")
-	else:
-		print("✅ Player encontrado: ", player.name)
-
-	
-
-
 func _physics_process(delta):
+	if morto:
+		return  # Bloqueia tudo se já morreu
+	
 	if player == null:
 		anim.play("idle")
+		velocity = Vector2.ZERO
 		return
 
 	var direcao = player.global_position - global_position
@@ -49,10 +42,8 @@ func _physics_process(delta):
 		anim.flip_h = direcao.x < 0
 		anim.play("run")
 
-
 func atirar():
-	print("heloo shootingbboi")
-	if not pode_atirar or projectile_scene == null:
+	if not pode_atirar or projectile_scene == null or player == null:
 		return
 
 	pode_atirar = false
@@ -62,37 +53,31 @@ func atirar():
 	get_tree().current_scene.add_child(proj)
 
 	proj.global_position = shoot_point.global_position
-	proj.direction = (player.global_position - global_position).normalized()
+	proj.initialize((player.global_position - shoot_point.global_position).normalized())
 
-	await get_tree().create_timer(0.8).timeout  # Tempo entre tiros
+	await get_tree().create_timer(0.8).timeout
 	pode_atirar = true
 
 
-
 func morrer():
-	print("heloo dead boy shootingbboi")
+	if morto:
+		return
+	morto = true
+	print("morri")
 	velocity = Vector2.ZERO
 	death.play()
 	anim.play("death")
-	await anim.animation_finished
-	
+	await get_tree().create_timer(2).timeout
 	queue_free()
-
-
+	
 func _on_hitbox_body_entered(body):
 	if body.is_in_group("projetil"):
-		print("🔥 Firewall atingido por projétil!")
 		morrer()
-		
 
 func _on_player_detection_area_body_entered(body):
 	if body.is_in_group("player"):
-		var dir = body.global_position - global_position
-		var dist = dir.length()
-		dir = dir.normalized()
-		anim.flip_h = dir.x < 0
-		anim.play("run")
-
-
+		player = body
+		atirar()
 func _on_player_detection_area_body_exited(body):
-	pass # Replace with function body.
+	if body == player:
+		player = null

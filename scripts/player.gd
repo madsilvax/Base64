@@ -17,6 +17,7 @@ class_name Player
 @onready var atirando: AudioStreamPlayer2D = $sfx_atirar
 @onready var sfx_noammo: AudioStreamPlayer2D = $sfx_noammo
 
+
 # Variáveis de controle
 var pode_interagir = true
 var animacao_parado = ""
@@ -31,6 +32,7 @@ var municao = 10
 var municao_maxima = 10
 var municao_pente = 30
 var pentes = 3
+var morto := false
 
 # Sistema de vida
 @export var vida_maxima: int = 90
@@ -47,6 +49,8 @@ func _ready():
 		sprite_animado.sprite_frames.set_animation_loop("reload", false)
 
 func _physics_process(delta: float) -> void:
+	if morto:
+		return 
 	# Pausa movimentação durante ações
 	if esta_atirando or esta_recarregando:
 		velocity = Vector2.ZERO
@@ -87,41 +91,35 @@ func _physics_process(delta: float) -> void:
 		reload()
 	
 	update_life()
-
+func dano():
+	vida_atual -= 10
+	
 func shoot():
 	if municao <= 0:
-		# Toca som de sem munição e não atira
 		sfx_noammo.play()
 		return
-	
+
 	esta_atirando = true
 	sprite_animado.play("atirando")
 	atirando.play()
 	municao -= 1
-	
-	# Instancia o projétil
+
 	var projectile = projectile_scene.instantiate()
 	get_tree().current_scene.add_child(projectile)
-	
-	# Define a posição e direção
 	projectile.global_position = shoot_point.global_position
-	
-	# Decide a direção baseada no flip horizontal
-	var dir = Vector2.RIGHT
-	if sprite_animado.flip_h:
-		dir = Vector2.LEFT
-	projectile.direction = dir
-	projectile.rotation = dir.angle()
-	
-	# Espera a animação terminar
+
+	# Define direção com base na orientação do player (você pode mudar isso para mouse, se quiser)
+	var dir = Vector2.RIGHT if not sprite_animado.flip_h else Vector2.LEFT
+	projectile.initialize(dir)
+
 	await sprite_animado.animation_finished
 	esta_atirando = false
-	
-	# Volta para animação padrão
+
 	if velocity == Vector2.ZERO:
 		sprite_animado.play("padrao_baixo")
 	else:
 		sprite_animado.play("run")
+
 
 func reload():
 	if esta_recarregando:
@@ -177,4 +175,16 @@ func _exit_tree():
 	sfx_noammo.stop()
 	
 func morrer():
+	if morto:
+		return
+	morto = true
+	print("morri")
+	velocity = Vector2.ZERO
+	
+	var cameras = get_tree().get_nodes_in_group("camera")
+	if cameras.size() > 0:
+		cameras[0].trigger_shake()  
+	
+	sprite_animado.play("morte")
+	await get_tree().create_timer(2).timeout
 	get_tree().change_scene_to_file("res://scenes/level_0.tscn")

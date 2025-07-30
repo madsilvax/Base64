@@ -323,7 +323,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iq3go"]
 size = Vector2(40, 22)
 
-[node name="TuboEnergia" type="StaticBody2D"]
+[node name="TuboEnergia" type="StaticBody2D" groups=["objetos"]]
 position = Vector2(0, -21)
 metadata/_edit_group_ = true
 

@@ -29,6 +29,7 @@ mouse_cursor/custom_image="res://assets/UI/MOUSEEE.png"
 camera=""
 projetil=""
 inimigo=""
+objetos=""
 
 [input]
 

@@ -6,7 +6,6 @@ signal change_scene(scene: String)
 
 var is_transitioning: bool = false  # Controla se já está em transição
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	menu_ost.volume_db= -20
 	menu_ost.play()
@@ -14,7 +13,6 @@ func _ready():
 	var tween := create_tween()
 	tween.tween_property(menu_ost, "volume_db", -5, 4.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func _on_iniciar_pressed():
 	if is_transitioning:
