@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://dmhqu78ijk2qe"]
+[gd_scene load_steps=57 format=3 uid="uid://dmhqu78ijk2qe"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_jn3sm"]
 [ext_resource type="Texture2D" uid="uid://dqtet1q7svwap" path="res://assets/characters/Player/Players/players green x2.png" id="1_yi5q6"]
@@ -225,12 +225,6 @@ blend_mode = 1
 shader = ExtResource("4_f2ig3")
 shader_parameter/lod = 0.8
 
-[sub_resource type="InputEventKey" id="InputEventKey_h5c1w"]
-keycode = 4194305
-
-[sub_resource type="Shortcut" id="Shortcut_oah30"]
-events = [SubResource("InputEventKey_h5c1w")]
-
 [sub_resource type="Animation" id="Animation_yk4xh"]
 length = 0.001
 tracks/0/type = "value"
@@ -445,7 +439,7 @@ grow_vertical = 2
 color = Color(0.431373, 0, 0.156863, 0.301961)
 
 [node name="logo" type="Sprite2D" parent="UI player/UI layer/pause"]
-position = Vector2(968, 277)
+position = Vector2(949, 277)
 scale = Vector2(0.17925, 0.17925)
 texture = ExtResource("7_jwh8r")
 
@@ -456,7 +450,6 @@ offset_top = 480.0
 offset_right = 1082.0
 offset_bottom = 617.0
 theme = ExtResource("7_lslm5")
-shortcut = SubResource("Shortcut_oah30")
 
 [node name="restart" type="Button" parent="UI player/UI layer/pause"]
 layout_mode = 2

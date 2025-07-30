@@ -1,6 +1,7 @@
-[gd_scene load_steps=30 format=3 uid="uid://cw3x0lr7c2ufm"]
+[gd_scene load_steps=32 format=3 uid="uid://cw3x0lr7c2ufm"]
 
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_mf7a7"]
+[ext_resource type="Script" path="res://scripts/kernel.gd" id="1_japt4"]
+[ext_resource type="PackedScene" uid="uid://cr1wly25xuq03" path="res://screens/Projectile_kernel.tscn" id="2_cqw8v"]
 [ext_resource type="Texture2D" uid="uid://bc0yk3s5tipy" path="res://assets/characters/Enemies/enemies x2.png" id="2_hgruf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l8a75"]
@@ -115,10 +116,22 @@ animations = [{
 "texture": SubResource("AtlasTexture_e2jyn")
 }, {
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_e2jyn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e2jyn")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_e7ydy")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0rfnv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0rfnv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fs6te")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fs6te")
@@ -196,33 +209,49 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cjv0h"]
 radius = 17.0
-height = 62.0
+height = 87.9972
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6dhws"]
-size = Vector2(52, 58)
+size = Vector2(117, 122)
 
-[node name="Kernel" type="CharacterBody2D"]
-script = ExtResource("1_mf7a7")
+[sub_resource type="CircleShape2D" id="CircleShape2D_5rm4b"]
+radius = 429.959
+
+[node name="Kernel" type="CharacterBody2D" groups=["inimigo"]]
+script = ExtResource("1_japt4")
+projectile_scene = ExtResource("2_cqw8v")
 
 [node name="anim_kernel" type="AnimatedSprite2D" parent="."]
-position = Vector2(-1, -22)
+position = Vector2(-1, -28)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_cjing")
 animation = &"idle"
+frame_progress = 0.350221
+
+[node name="Node2D" type="Node2D" parent="."]
 
 [node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(-5, 14)
 rotation = 1.57877
 shape = SubResource("CapsuleShape2D_cjv0h")
 
-[node name="hurtbox" type="Area2D" parent="."]
+[node name="hitbox" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
-position = Vector2(-2, 3)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(-4.5, -31)
 shape = SubResource("RectangleShape2D_6dhws")
-
-[node name="sfx_recarregar" type="AudioStreamPlayer2D" parent="."]
 
 [node name="sfx_atirar" type="AudioStreamPlayer2D" parent="."]
 
-[node name="sfx_dano" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(0, -1)
+[node name="sfx_passos_metal" type="AudioStreamPlayer2D" parent="."]
+
+[node name="PlayerDetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectionArea"]
+shape = SubResource("CircleShape2D_5rm4b")
+
+[node name="shoot_point" type="Marker2D" parent="."]
+
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_entered" from="PlayerDetectionArea" to="." method="_on_player_detection_area_body_entered"]
+[connection signal="body_exited" from="PlayerDetectionArea" to="." method="_on_player_detection_area_body_exited"]

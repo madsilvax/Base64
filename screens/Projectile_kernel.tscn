@@ -1,0 +1,76 @@
+[gd_scene load_steps=10 format=3 uid="uid://cr1wly25xuq03"]
+
+[ext_resource type="Script" path="res://scripts/projectile_kernel.gd" id="1_vrt0t"]
+[ext_resource type="Texture2D" uid="uid://dr4ipent5khtw" path="res://assets/Projectiles/projectiles x2.png" id="2_jk12x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bn8te"]
+atlas = ExtResource("2_jk12x")
+region = Rect2(0, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0w513"]
+atlas = ExtResource("2_jk12x")
+region = Rect2(64, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3w5ag"]
+atlas = ExtResource("2_jk12x")
+region = Rect2(128, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wjqeg"]
+atlas = ExtResource("2_jk12x")
+region = Rect2(192, 192, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5x7ql"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bn8te")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0w513")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3w5ag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wjqeg")
+}],
+"loop": true,
+"name": &"projetil",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h77k3"]
+size = Vector2(30, 26)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gwdri"]
+radius = 34.9285
+
+[node name="ProjectileKernel" type="CharacterBody2D"]
+script = ExtResource("1_vrt0t")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(2, -6)
+scale = Vector2(1.95313, 1.95313)
+sprite_frames = SubResource("SpriteFrames_5x7ql")
+animation = &"projetil"
+frame = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_h77k3")
+disabled = true
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="LifeTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="EnemyDetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetectionArea"]
+shape = SubResource("CircleShape2D_gwdri")
+
+[connection signal="timeout" from="LifeTimer" to="." method="_on_life_timer_timeout"]
+[connection signal="body_entered" from="EnemyDetectionArea" to="." method="_on_enemy_detection_area_body_entered"]

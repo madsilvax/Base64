@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dmmgoyduccs56"]
+[gd_scene load_steps=6 format=3 uid="uid://dmmgoyduccs56"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_a0e2s"]
 [ext_resource type="Theme" uid="uid://dsuhbvsqex3aq" path="res://assets/UI/Menu/resources_buttons/novo_jogo.tres" id="2_it3su"]
 [ext_resource type="Theme" uid="uid://cygm3es3wkwhp" path="res://assets/UI/Menu/resources_buttons/quit_default.tres" id="3_pu4d4"]
+[ext_resource type="AudioStream" uid="uid://ddeibiprp2bxk" path="res://assets/sounds/music/awaiting_orders.wav" id="4_2t24y"]
 [ext_resource type="VideoStream" path="res://assets/UI/Menu/MENU-SEM-BOTOES.ogv" id="4_q3y65"]
 
 [node name="main_menu" type="Control"]
@@ -43,6 +44,7 @@ theme = ExtResource("3_pu4d4")
 metadata/_edit_use_anchors_ = true
 
 [node name="Menu ost" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_2t24y")
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
 layout_mode = 1
