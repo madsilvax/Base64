@@ -1,9 +1,10 @@
-[gd_scene load_steps=40 format=4 uid="uid://d3t3eqyg2q2g4"]
+[gd_scene load_steps=41 format=4 uid="uid://d3t3eqyg2q2g4"]
 
 [ext_resource type="Script" path="res://scripts/level_4.gd" id="1_c07d7"]
 [ext_resource type="Texture2D" uid="uid://dtdwc3sjjk556" path="res://assets/floor and walls/tileset x2.png" id="2_5kggo"]
 [ext_resource type="Texture2D" uid="uid://c6ui4yetewsck" path="res://assets/Props and Items/props and items x2.png" id="3_0q32y"]
 [ext_resource type="Texture2D" uid="uid://chs6dayyh8s7f" path="res://assets/UI/E.png" id="4_ykkd7"]
+[ext_resource type="PackedScene" uid="uid://cw3x0lr7c2ufm" path="res://characters/kernel.tscn" id="5_vgt6h"]
 [ext_resource type="PackedScene" uid="uid://dmhqu78ijk2qe" path="res://characters/player.tscn" id="6_wwb10"]
 [ext_resource type="PackedScene" uid="uid://lnj6sipa5bm8" path="res://scenes/minigame.tscn" id="7_ncuif"]
 [ext_resource type="PackedScene" uid="uid://b2ngl1siuokub" path="res://scenes/padlock.tscn" id="8_86hd5"]
@@ -811,9 +812,13 @@ texture = ExtResource("4_ykkd7")
 position = Vector2(1, 47)
 shape = SubResource("RectangleShape2D_et06k")
 
+[node name="Kernel" parent="Ysort" instance=ExtResource("5_vgt6h")]
+position = Vector2(808, 196)
+projectile_scene = null
+
 [node name="player" parent="Ysort" instance=ExtResource("6_wwb10")]
 material = SubResource("CanvasItemMaterial_ygahe")
-position = Vector2(-545, 96)
+position = Vector2(616, 175)
 
 [node name="minigame" parent="Ysort/player" instance=ExtResource("7_ncuif")]
 visible = false

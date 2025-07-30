@@ -756,7 +756,7 @@ position = Vector2(1, 47)
 shape = SubResource("RectangleShape2D_et06k")
 
 [node name="Cache" parent="Ysort" instance=ExtResource("5_5osfb")]
-position = Vector2(192, -104)
+position = Vector2(673, -573)
 
 [node name="player" parent="Ysort" instance=ExtResource("6_ojl11")]
 material = SubResource("CanvasItemMaterial_ygahe")

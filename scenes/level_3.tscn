@@ -1258,7 +1258,7 @@ position = Vector2(1, 47)
 shape = SubResource("RectangleShape2D_et06k")
 
 [node name="Dataset" parent="Ysort" instance=ExtResource("5_32g16")]
-position = Vector2(187, -1017)
+position = Vector2(33, -697)
 
 [node name="player" parent="Ysort" instance=ExtResource("6_52a8p")]
 material = SubResource("CanvasItemMaterial_ygahe")
