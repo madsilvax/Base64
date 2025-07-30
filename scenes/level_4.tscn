@@ -1,10 +1,9 @@
-[gd_scene load_steps=33 format=4 uid="uid://d3t3eqyg2q2g4"]
+[gd_scene load_steps=40 format=4 uid="uid://d3t3eqyg2q2g4"]
 
 [ext_resource type="Script" path="res://scripts/level_4.gd" id="1_c07d7"]
 [ext_resource type="Texture2D" uid="uid://dtdwc3sjjk556" path="res://assets/floor and walls/tileset x2.png" id="2_5kggo"]
 [ext_resource type="Texture2D" uid="uid://c6ui4yetewsck" path="res://assets/Props and Items/props and items x2.png" id="3_0q32y"]
 [ext_resource type="Texture2D" uid="uid://chs6dayyh8s7f" path="res://assets/UI/E.png" id="4_ykkd7"]
-[ext_resource type="PackedScene" uid="uid://cw3x0lr7c2ufm" path="res://characters/kernel.tscn" id="5_pmvgw"]
 [ext_resource type="PackedScene" uid="uid://dmhqu78ijk2qe" path="res://characters/player.tscn" id="6_wwb10"]
 [ext_resource type="PackedScene" uid="uid://lnj6sipa5bm8" path="res://scenes/minigame.tscn" id="7_ncuif"]
 [ext_resource type="PackedScene" uid="uid://b2ngl1siuokub" path="res://scenes/padlock.tscn" id="8_86hd5"]
@@ -456,6 +455,64 @@ tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/3 = SubResource("TileSetAtlasSource_hsl6i")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_4aph8"]
+atlas = ExtResource("3_0q32y")
+region = Rect2(0, 768, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j547c"]
+atlas = ExtResource("3_0q32y")
+region = Rect2(128, 768, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xg3bn"]
+atlas = ExtResource("3_0q32y")
+region = Rect2(256, 768, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rjukj"]
+atlas = ExtResource("3_0q32y")
+region = Rect2(384, 768, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r3dvw"]
+atlas = ExtResource("3_0q32y")
+region = Rect2(0, 832, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4voq8"]
+atlas = ExtResource("3_0q32y")
+region = Rect2(0, 896, 128, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g5mca"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4aph8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j547c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xg3bn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rjukj")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r3dvw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4voq8")
+}],
+"loop": false,
+"name": &"open",
+"speed": 0.2
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ehy7k"]
+size = Vector2(128, 20)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vtqmh"]
 texture = ExtResource("3_0q32y")
 texture_region_size = Vector2i(64, 64)
@@ -558,27 +615,27 @@ texture_region_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_vtqmh")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4aph8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_8oec6"]
 atlas = ExtResource("3_0q32y")
 region = Rect2(0, 768, 128, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_j547c"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_jmm32"]
 atlas = ExtResource("3_0q32y")
 region = Rect2(128, 768, 128, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xg3bn"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_q55bq"]
 atlas = ExtResource("3_0q32y")
 region = Rect2(256, 768, 128, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rjukj"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7gimk"]
 atlas = ExtResource("3_0q32y")
 region = Rect2(384, 768, 128, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_r3dvw"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrsvu"]
 atlas = ExtResource("3_0q32y")
 region = Rect2(0, 832, 128, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4voq8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ob8p"]
 atlas = ExtResource("3_0q32y")
 region = Rect2(0, 896, 128, 64)
 
@@ -586,16 +643,16 @@ region = Rect2(0, 896, 128, 64)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4aph8")
+"texture": SubResource("AtlasTexture_8oec6")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_j547c")
+"texture": SubResource("AtlasTexture_jmm32")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xg3bn")
+"texture": SubResource("AtlasTexture_q55bq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rjukj")
+"texture": SubResource("AtlasTexture_7gimk")
 }],
 "loop": true,
 "name": &"closed",
@@ -603,10 +660,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_r3dvw")
+"texture": SubResource("AtlasTexture_lrsvu")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4voq8")
+"texture": SubResource("AtlasTexture_8ob8p")
 }],
 "loop": false,
 "name": &"open",
@@ -685,12 +742,17 @@ tile_set = SubResource("TileSet_7ps20")
 [node name="Ysort" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="duto" type="Sprite2D" parent="Ysort"]
-position = Vector2(-544, 85)
-scale = Vector2(0.374126, 0.374126)
-texture = ExtResource("2_5kggo")
-region_enabled = true
-region_rect = Rect2(2052.06, 67.797, 57.7847, 58.2088)
+[node name="Door Inicial" type="AnimatedSprite2D" parent="Ysort"]
+position = Vector2(192, -704)
+sprite_frames = SubResource("SpriteFrames_g5mca")
+animation = &"closed"
+autoplay = "closed"
+
+[node name="block" type="StaticBody2D" parent="Ysort/Door Inicial"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ysort/Door Inicial/block"]
+position = Vector2(0, 22)
+shape = SubResource("RectangleShape2D_ehy7k")
 
 [node name="TileMapLayer_Walls" type="TileMapLayer" parent="Ysort"]
 y_sort_enabled = true
@@ -698,7 +760,6 @@ tile_map_data = PackedByteArray("AAD3/wcAAwAVAAoAAAD3/wgAAwAVAAsAAAD2/wcAAwAUAAo
 tile_set = SubResource("TileSet_7ps20")
 
 [node name="TileMapLayer_Props" type="TileMapLayer" parent="Ysort"]
-tile_map_data = PackedByteArray("AADi/xIAAAALAAYAAADj/xIAAAALAAYAAADk/wYAAAALAAYAAADg/wYAAAALAAYAAADg/wkAAAALAAYAAADg/w4AAAALAAYAAADk/xEAAAALAAYAAADg/xEAAAALAAYAAADk/w4AAAALAAYAAADk/wkAAAALAAYAAADz/yMAAAALAAYAAADz/yYAAAALAAYAAAD3/yMAAAALAAYAAAD3/yYAAAALAAYAAAAEACMAAAALAAYAAAAEACYAAAALAAYAAAAAACMAAAALAAYAAAAAACYAAAALAAYAAAAnAAAAAAAIAAIAAAAjAAAAAAAIAAIAAAAfAAAAAAAIAAIAAAAfAP7/AAAMAAcAAAAjAP7/AAAMAAcAAAAnAP7/AAAMAAcAAAAfAAUAAAAIAAIAAAAjAAUAAAAIAAIAAAAnAAUAAAAIAAIAAAAnAAMAAAAMAAcAAAAjAAMAAAAMAAcAAAAfAAMAAAAMAAcAAAAfAAgAAAAMAAcAAAAjAAgAAAAMAAcAAAAnAAgAAAAMAAcAAAAfAAoAAAAIAAIAAAAjAAoAAAAIAAIAAAAnAAoAAAAIAAIAAAAfABoAAAAAAAMAAAAfABsAAAALAAcAAAAfABYAAAALAAcAAAAfABUAAAAAAAMAAAAfABEAAAALAAcAAAAfABAAAAAAAAMAAAAjABAAAAAAAAMAAAAnABAAAAAAAAMAAAAjABUAAAAAAAMAAAAnABUAAAAAAAMAAAAjABoAAAAAAAMAAAAnABoAAAAAAAMAAAAjABEAAAALAAcAAAAnABEAAAALAAcAAAAnABYAAAALAAcAAAAjABYAAAALAAcAAAAjABsAAAALAAcAAAAnABsAAAALAAcAAAArAAAAAAAIAAIAAAArAAUAAAAIAAIAAAArAAoAAAAIAAIAAAArAAgAAAAMAAcAAAArAAMAAAAMAAcAAAArAP7/AAAMAAcAAAA0AP7/AAAMAAcAAAA0AAAAAAAIAAIAAAA0AAMAAAAMAAcAAAA0AAUAAAAIAAIAAAA0AAgAAAAMAAcAAAA0AAoAAAAIAAIAAAA4AP7/AAAMAAcAAAA4AAAAAAAIAAIAAAA4AAMAAAAMAAcAAAA4AAUAAAAIAAIAAAA4AAgAAAAMAAcAAAA4AAoAAAAIAAIAAAA8AP7/AAAMAAcAAAA8AAAAAAAIAAIAAAA8AAMAAAAMAAcAAAA8AAUAAAAIAAIAAAA8AAgAAAAMAAcAAAA8AAoAAAAIAAIAAABAAP7/AAAMAAcAAABAAAAAAAAIAAIAAABAAAMAAAAMAAcAAABAAAUAAAAIAAIAAABAAAgAAAAMAAcAAABAAAoAAAAIAAIAAAArABAAAAAAAAMAAAArABUAAAAAAAMAAAArABoAAAAAAAMAAAArABEAAAALAAcAAAArABsAAAALAAcAAAArABYAAAALAAcAAAA0ABAAAAAAAAMAAAA0ABEAAAALAAcAAAA0ABUAAAAAAAMAAAA0ABYAAAALAAcAAAA0ABoAAAAAAAMAAAA0ABsAAAALAAcAAAA4ABAAAAAAAAMAAAA4ABEAAAALAAcAAAA4ABUAAAAAAAMAAAA4ABYAAAALAAcAAAA4ABoAAAAAAAMAAAA4ABsAAAALAAcAAAA8ABAAAAAAAAMAAAA8ABEAAAALAAcAAAA8ABUAAAAAAAMAAAA8ABYAAAALAAcAAAA8ABoAAAAAAAMAAAA8ABsAAAALAAcAAABAABAAAAAAAAMAAABAABEAAAALAAcAAABAABUAAAAAAAMAAABAABYAAAALAAcAAABAABoAAAAAAAMAAABAABsAAAALAAcAAAAAAAQAAAAMAAcAAAAAAAcAAAAKAAMAACAAAAgAAAAKAAMAAAAAAAoAAAALAAcAAAAAAA0AAAAMAAcAAAAAABAAAAAKAAMAACAAABEAAAAKAAMAAAAAABMAAAALAAcAAAADAAQAAAAMAAcAAAADAAcAAAAKAAMAADADAAgAAAAKAAMAABADAAoAAAALAAcAAAADAA0AAAAMAAcAAAADABAAAAAKAAMAADADABEAAAAKAAMAABADABMAAAALAAcAAAD0/wQAAAAMAAcAAAD0/wcAAAAKAAMAACD0/wgAAAAKAAMAAAD0/woAAAALAAcAAAD0/w0AAAAMAAcAAAD0/xAAAAAKAAMAACD0/xEAAAAKAAMAAAD0/xMAAAALAAcAAAD3/wQAAAAMAAcAAAD3/wcAAAAKAAMAADD3/wgAAAAKAAMAABD3/woAAAALAAcAAAD3/w0AAAAMAAcAAAD3/xAAAAAKAAMAADD3/xEAAAAKAAMAABD3/xMAAAALAAcAAAA=")
 tile_set = SubResource("TileSet_id8cy")
 
 [node name="Door" type="AnimatedSprite2D" parent="Ysort"]
@@ -749,9 +810,6 @@ texture = ExtResource("4_ykkd7")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ysort/Screen/screen_area"]
 position = Vector2(1, 47)
 shape = SubResource("RectangleShape2D_et06k")
-
-[node name="Kernel" parent="Ysort" instance=ExtResource("5_pmvgw")]
-position = Vector2(768, -484)
 
 [node name="player" parent="Ysort" instance=ExtResource("6_wwb10")]
 material = SubResource("CanvasItemMaterial_ygahe")

@@ -299,7 +299,7 @@ texture = ExtResource("18_06b1x")
 [node name="anim" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -14)
 sprite_frames = SubResource("SpriteFrames_fu0t6")
-animation = &"morte"
+animation = &"padrao_baixo"
 
 [node name="collision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 14)

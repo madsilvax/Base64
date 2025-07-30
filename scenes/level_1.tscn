@@ -751,13 +751,13 @@ position = Vector2(1, 47)
 shape = SubResource("RectangleShape2D_et06k")
 
 [node name="Firewall" parent="Ysort" instance=ExtResource("5_b70a1")]
-position = Vector2(766, -563)
+position = Vector2(758, -537)
 collision_layer = 1
 collision_mask = 1
 
 [node name="player" parent="Ysort" instance=ExtResource("6_6delb")]
 material = SubResource("CanvasItemMaterial_ygahe")
-position = Vector2(-545, 96)
+position = Vector2(-545, 97)
 
 [node name="minigame" parent="Ysort/player" instance=ExtResource("7_lmgpk")]
 visible = false

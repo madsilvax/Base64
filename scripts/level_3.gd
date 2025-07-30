@@ -85,4 +85,5 @@ func _on_door_area_body_exited(body: Node2D) -> void:
 		$Ysort/Door/E.hide()
 
 func _on_end_body_entered(body: Node2D) -> void:
-	get_tree().change_scene_to_file("res://scenes/level_4.tscn")
+	if body.name == "player":
+		get_tree().change_scene_to_file("res://scenes/level_4.tscn")
