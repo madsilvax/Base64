@@ -1131,7 +1131,6 @@ tile_set = SubResource("TileSet_id8cy")
 
 [node name="Kernel" parent="Ysort" instance=ExtResource("5_vgt6h")]
 position = Vector2(259, 306)
-projectile_scene = null
 
 [node name="player" parent="Ysort" instance=ExtResource("6_wwb10")]
 material = SubResource("CanvasItemMaterial_ygahe")
@@ -1161,6 +1160,8 @@ autostart = true
 
 [node name="TimerSussurros" type="Timer" parent="."]
 
-[connection signal="tree_exited" from="Ysort/Kernel" to="." method="_on_kernel_tree_exited"]
+[node name="TimerSpawn" type="Timer" parent="."]
+
 [connection signal="timeout" from="TimerInicio" to="." method="_on_timer_inicio_timeout"]
 [connection signal="timeout" from="TimerSussurros" to="." method="_on_timer_sussurros_timeout"]
+[connection signal="timeout" from="TimerSpawn" to="." method="_on_timer_spawn_timeout"]
