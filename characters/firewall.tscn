@@ -1,10 +1,12 @@
-[gd_scene load_steps=49 format=3 uid="uid://c0frrqb7dbvt1"]
+[gd_scene load_steps=51 format=3 uid="uid://c0frrqb7dbvt1"]
 
 [ext_resource type="Script" path="res://scripts/firewall.gd" id="1_ldkcr"]
 [ext_resource type="Texture2D" uid="uid://i8e25ebgtp8i" path="res://assets/characters/Boss/boss x2.png" id="2_xtk5o"]
 [ext_resource type="AudioStream" uid="uid://cbyyy5mr7ttlu" path="res://assets/sounds/sfx/laser_firewall2.wav" id="3_f6r4i"]
 [ext_resource type="AudioStream" uid="uid://iftwoto25etd" path="res://assets/sounds/sfx/death_firewall.wav" id="4_s0ley"]
 [ext_resource type="PackedScene" uid="uid://clu4k1da2gych" path="res://screens/Projectile_firewall.tscn" id="5_5e6w7"]
+[ext_resource type="AudioStream" uid="uid://barno2vc5cbgc" path="res://assets/sounds/sfx/combat_engage (1).wav" id="6_nl60g"]
+[ext_resource type="AudioStream" uid="uid://b5l4n11fxfl1n" path="res://assets/sounds/sfx/overheating.wav" id="7_n56ag"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qq1xr"]
 atlas = ExtResource("2_xtk5o")
@@ -315,7 +317,7 @@ height = 53.9998
 size = Vector2(80, 51)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rdchy"]
-radius = 175.345
+radius = 308.002
 
 [node name="Firewall" type="CharacterBody2D" groups=["inimigo"]]
 collision_layer = 2
@@ -324,8 +326,8 @@ script = ExtResource("1_ldkcr")
 projectile_scene = ExtResource("5_5e6w7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-0.5, -17.5)
-scale = Vector2(0.539063, 0.539063)
+position = Vector2(3, -40)
+scale = Vector2(0.953125, 0.953125)
 sprite_frames = SubResource("SpriteFrames_x5s44")
 animation = &"death"
 
@@ -354,6 +356,12 @@ stream = ExtResource("3_f6r4i")
 
 [node name="sfx_death" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_s0ley")
+
+[node name="music_combat" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_nl60g")
+
+[node name="overheating" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_n56ag")
 
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="body_entered" from="PlayerDetectionArea" to="." method="_on_player_detection_area_body_entered"]

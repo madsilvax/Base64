@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://dmhqu78ijk2qe"]
+[gd_scene load_steps=58 format=3 uid="uid://dmhqu78ijk2qe"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_jn3sm"]
 [ext_resource type="Texture2D" uid="uid://dqtet1q7svwap" path="res://assets/characters/Player/Players/players green x2.png" id="1_yi5q6"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://8uyc4lg0jab" path="res://assets/UI/Menu/13.png" id="7_jwh8r"]
 [ext_resource type="Theme" uid="uid://dbnade3mghul" path="res://assets/UI/Menu/resources_buttons/continue_default.tres" id="7_lslm5"]
 [ext_resource type="AudioStream" uid="uid://csbaqdrsyirqa" path="res://assets/sounds/sfx/noammo.mp3" id="8_u0fay"]
+[ext_resource type="AudioStream" uid="uid://c421p0pd34i7g" path="res://assets/sounds/sfx/morte_player.mp3" id="9_wdo7m"]
 [ext_resource type="Theme" uid="uid://dv4217lyjeewm" path="res://assets/UI/Menu/resources_buttons/restart_defult.tres" id="9_yudwp"]
 [ext_resource type="Theme" uid="uid://cygm3es3wkwhp" path="res://assets/UI/Menu/resources_buttons/quit_default.tres" id="10_8ma6q"]
 [ext_resource type="Texture2D" uid="uid://bln5a7kdho8vq" path="res://Asset 16.png" id="13_xdv6d"]
@@ -334,6 +335,9 @@ autoplay = true
 process_mode = 1
 stream = ExtResource("7_7o1cv")
 volume_db = -12.876
+
+[node name="sfx_death" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_wdo7m")
 
 [node name="sfx_noammo" type="AudioStreamPlayer2D" parent="."]
 process_mode = 1

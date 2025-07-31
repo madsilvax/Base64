@@ -17,6 +17,7 @@ class_name Player
 @onready var recarregando_sfx: AudioStreamPlayer2D = $sfx_recarregar
 @onready var atirando: AudioStreamPlayer2D = $sfx_atirar
 @onready var sfx_noammo: AudioStreamPlayer2D = $sfx_noammo
+@onready var death: AudioStreamPlayer2D = $sfx_death
 
 
 # Variáveis de controle
@@ -174,6 +175,7 @@ func update_life():
 		life_sprite.set_frame(2)
 	if vida_atual == 0:
 		life_sprite.set_frame(1)
+		
 		morrer()
 
 func _exit_tree():
@@ -194,5 +196,6 @@ func morrer():
 		cameras[0].trigger_shake()  
 	
 	sprite_animado.play("morte")
+	death.play()
 	await get_tree().create_timer(2).timeout
 	get_tree().reload_current_scene()

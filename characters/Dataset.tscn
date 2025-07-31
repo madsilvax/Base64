@@ -1,7 +1,11 @@
-[gd_scene load_steps=26 format=3 uid="uid://b4sy45wpnsrvr"]
+[gd_scene load_steps=30 format=3 uid="uid://b4sy45wpnsrvr"]
 
 [ext_resource type="Script" path="res://scripts/dataset.gd" id="1_75kwo"]
+[ext_resource type="PackedScene" uid="uid://cr1wly25xuq03" path="res://screens/Projectile_kernel.tscn" id="2_1rbaq"]
 [ext_resource type="Texture2D" uid="uid://bc0yk3s5tipy" path="res://assets/characters/Enemies/enemies x2.png" id="2_g01sv"]
+[ext_resource type="AudioStream" uid="uid://barno2vc5cbgc" path="res://assets/sounds/sfx/combat_engage (1).wav" id="4_0q1jt"]
+[ext_resource type="AudioStream" uid="uid://crjqv86owy3wi" path="res://assets/sounds/sfx/dataset_shot.wav" id="4_txx21"]
+[ext_resource type="AudioStream" uid="uid://dutbg3ed2fi8y" path="res://assets/sounds/sfx/eject.wav" id="6_anl71"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8jy2t"]
 atlas = ExtResource("2_g01sv")
@@ -164,18 +168,21 @@ radius = 7.99958
 height = 29.9984
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5rxhj"]
-size = Vector2(49, 51)
+size = Vector2(51, 69)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0kf3i"]
-radius = 56.0357
+radius = 112.0
 
 [node name="Dataset" type="CharacterBody2D"]
 script = ExtResource("1_75kwo")
+projectile_scene = ExtResource("2_1rbaq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -15)
+position = Vector2(-5, -13)
+scale = Vector2(1.2125, 1.2125)
 sprite_frames = SubResource("SpriteFrames_p6oun")
-animation = &"shoot"
+animation = &"death"
+frame_progress = 0.590855
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(0, -15)
@@ -189,7 +196,7 @@ shape = SubResource("CapsuleShape2D_fs3bf")
 position = Vector2(0, -15)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-position = Vector2(5.5, 4.5)
+position = Vector2(-3.5, -4.5)
 shape = SubResource("RectangleShape2D_5rxhj")
 
 [node name="PlayerDetectionArea" type="Area2D" parent="."]
@@ -201,3 +208,10 @@ shape = SubResource("CircleShape2D_0kf3i")
 [node name="shoot_point" type="Marker2D" parent="."]
 
 [node name="sfx_atirar" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_txx21")
+
+[node name="music_combat" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_0q1jt")
+
+[node name="eject" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_anl71")

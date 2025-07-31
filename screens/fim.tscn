@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6mv0cwx6h85x"]
+
+[ext_resource type="Script" path="res://scripts/fim.gd" id="1_2hata"]
+[ext_resource type="AudioStream" uid="uid://i4wo6svw6670" path="res://assets/sounds/sfx/final_game.wav" id="2_ecafv"]
+[ext_resource type="AudioStream" uid="uid://bl7asxfm38i3l" path="res://assets/sounds/sfx/final_game2.wav" id="3_8x83e"]
+
+[node name="Fim" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2hata")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1923.0
+offset_bottom = 1085.0
+color = Color(0, 0, 0, 1)
+
+[node name="final1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_ecafv")
+
+[node name="final2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_8x83e")
+
+[connection signal="finished" from="final1" to="." method="_on_final_1_finished"]
+[connection signal="finished" from="final2" to="." method="_on_final_2_finished"]

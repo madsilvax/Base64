@@ -1,8 +1,11 @@
-[gd_scene load_steps=28 format=3 uid="uid://ciqjqp03u1qk4"]
+[gd_scene load_steps=31 format=3 uid="uid://ciqjqp03u1qk4"]
 
 [ext_resource type="Script" path="res://scripts/cache.gd" id="1_de8pk"]
 [ext_resource type="Texture2D" uid="uid://bc0yk3s5tipy" path="res://assets/characters/Enemies/enemies x2.png" id="1_yg2ex"]
 [ext_resource type="PackedScene" uid="uid://bq7jiexqkll68" path="res://screens/Projectile_cache.tscn" id="2_egxko"]
+[ext_resource type="AudioStream" uid="uid://barno2vc5cbgc" path="res://assets/sounds/sfx/combat_engage (1).wav" id="4_1b8dh"]
+[ext_resource type="AudioStream" uid="uid://doen8il3tvqcl" path="res://assets/sounds/sfx/cache_shot.wav" id="4_wj518"]
+[ext_resource type="AudioStream" uid="uid://kfmkrwkfxdpa" path="res://assets/sounds/sfx/critical.wav" id="6_g5ua8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dlu70"]
 atlas = ExtResource("1_yg2ex")
@@ -174,7 +177,7 @@ height = 34.0
 size = Vector2(32, 61)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cuch1"]
-radius = 81.0987
+radius = 521.5
 
 [node name="Cache" type="CharacterBody2D"]
 script = ExtResource("1_de8pk")
@@ -208,6 +211,13 @@ shape = SubResource("CircleShape2D_cuch1")
 [node name="shoot_point" type="Marker2D" parent="."]
 
 [node name="sfx_atirar" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_wj518")
+
+[node name="music_combat" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_1b8dh")
+
+[node name="critical" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_g5ua8")
 
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="body_entered" from="PlayerDetectionArea" to="." method="_on_player_detection_area_body_entered"]

@@ -12,13 +12,9 @@ var player_padlock = false
 var padlock_finished = false
 
 func _ready():
-	var objetos = get_tree().get_nodes_in_group("objetos")
-	for obj in objetos:
-		if obj.has_node("AnimationPlayer"):
-			var anim_player = obj.get_node("AnimationPlayer")
-			var anims = anim_player.get_animation_list()
-			for anim in anims:
-				anim_player.play(anim)
+	$Ysort/emergência.play("luzinhas_emergencia")
+	$"Ysort/emergência2".play("luzinhas_emergencia")
+	$Ysort/fios.play("default")
 
 	
 	$Ysort/player/minigame.connect("minigame_over", open_door)

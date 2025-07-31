@@ -1,8 +1,11 @@
-[gd_scene load_steps=32 format=3 uid="uid://cw3x0lr7c2ufm"]
+[gd_scene load_steps=35 format=3 uid="uid://cw3x0lr7c2ufm"]
 
 [ext_resource type="Script" path="res://scripts/kernel.gd" id="1_japt4"]
 [ext_resource type="PackedScene" uid="uid://cr1wly25xuq03" path="res://screens/Projectile_kernel.tscn" id="2_cqw8v"]
 [ext_resource type="Texture2D" uid="uid://bc0yk3s5tipy" path="res://assets/characters/Enemies/enemies x2.png" id="2_hgruf"]
+[ext_resource type="AudioStream" uid="uid://barno2vc5cbgc" path="res://assets/sounds/sfx/combat_engage (1).wav" id="4_1tp68"]
+[ext_resource type="AudioStream" uid="uid://c8k7seyde72ok" path="res://assets/sounds/sfx/biglasergun.mp3" id="4_o4mik"]
+[ext_resource type="AudioStream" uid="uid://b7dsxyw3wteox" path="res://assets/sounds/sfx/kernel_death.wav" id="5_5b3dm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l8a75"]
 atlas = ExtResource("2_hgruf")
@@ -208,37 +211,37 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cjv0h"]
-radius = 17.0
-height = 87.9972
+radius = 24.0072
+height = 98.0288
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6dhws"]
-size = Vector2(117, 122)
+size = Vector2(179, 176)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5rm4b"]
-radius = 429.959
+radius = 658.0
 
 [node name="Kernel" type="CharacterBody2D" groups=["inimigo"]]
 script = ExtResource("1_japt4")
 projectile_scene = ExtResource("2_cqw8v")
 
 [node name="anim_kernel" type="AnimatedSprite2D" parent="."]
-position = Vector2(-1, -28)
-scale = Vector2(2, 2)
+position = Vector2(6, -15)
+scale = Vector2(1.63867, 1.63867)
 sprite_frames = SubResource("SpriteFrames_cjing")
 animation = &"idle"
-frame_progress = 0.350221
+frame_progress = 0.928598
 
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="collision" type="CollisionShape2D" parent="."]
-position = Vector2(-5, 14)
+position = Vector2(4, 16)
 rotation = 1.57877
 shape = SubResource("CapsuleShape2D_cjv0h")
 
 [node name="hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-position = Vector2(-4.5, -31)
+position = Vector2(0.5, -58)
 shape = SubResource("RectangleShape2D_6dhws")
 
 [node name="PlayerDetectionArea" type="Area2D" parent="."]
@@ -249,8 +252,13 @@ shape = SubResource("CircleShape2D_5rm4b")
 [node name="shoot_point" type="Marker2D" parent="."]
 
 [node name="sfx_atirar" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_o4mik")
 
-[node name="sfx_passos_metal" type="AudioStreamPlayer2D" parent="."]
+[node name="music_combat" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_1tp68")
+
+[node name="death" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_5b3dm")
 
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="body_entered" from="PlayerDetectionArea" to="." method="_on_player_detection_area_body_entered"]

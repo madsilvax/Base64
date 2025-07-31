@@ -11,7 +11,7 @@ func _ready():
 	menu_ost.play()
 	
 	var tween := create_tween()
-	tween.tween_property(menu_ost, "volume_db", -5, 4.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(menu_ost, "volume_db", 3, 4.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	
 
 func _on_iniciar_pressed():

@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/morte_player.mp3-e91e6eae201001913f4471975fa8
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

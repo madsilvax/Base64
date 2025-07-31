@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var shoot_point: Marker2D = $shoot_point
 
-@export var velocidade := 90
+@export var velocidade := 150
 @export var distancia_perseguir := 200.0
 @export var distancia_minima := 60.0
 @export var projectile_scene: PackedScene
@@ -10,6 +10,8 @@ extends CharacterBody2D
 @onready var anim = $AnimatedSprite2D
 @onready var shoot = $sfx_atirar
 @onready var hitbox = $hitbox
+@onready var music = $music_combat
+@onready var critical = $critical
 
 var morto := false
 var player: Node2D = null
@@ -64,9 +66,13 @@ func morrer():
 	morto = true
 	print("morri")
 	velocity = Vector2.ZERO
+	
 	anim.play("death")
 	await get_tree().create_timer(2).timeout
 	queue_free()
+	
+	critical.play()
+	music.stop()
 	
 func _on_hitbox_body_entered(body):
 	if body.is_in_group("projetil"):
@@ -76,6 +82,8 @@ func _on_player_detection_area_body_entered(body):
 	if body.is_in_group("player"):
 		player = body
 		atirar()
+		music.play()
+		
 func _on_player_detection_area_body_exited(body):
 	if body == player:
 		player = null

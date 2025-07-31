@@ -45,6 +45,8 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Menu ost" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_2t24y")
+volume_db = 21.443
+autoplay = true
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
 layout_mode = 1
