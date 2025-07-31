@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed := 300.0
+@export var speed := 600.0
 var direction: Vector2 = Vector2.ZERO
 
 func initialize(dir: Vector2) -> void:

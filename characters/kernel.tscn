@@ -218,10 +218,12 @@ height = 89.9971
 size = Vector2(110, 111)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5rm4b"]
-radius = 658.0
+radius = 668.003
 
-[node name="Kernel" type="CharacterBody2D" groups=["inimigo"]]
+[node name="Kernel" type="CharacterBody2D"]
 script = ExtResource("1_japt4")
+distancia_perseguir = 400.0
+distancia_minima = 80.0
 projectile_scene = ExtResource("2_cqw8v")
 
 [node name="anim_kernel" type="AnimatedSprite2D" parent="."]

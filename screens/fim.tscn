@@ -21,9 +21,11 @@ color = Color(0, 0, 0, 1)
 
 [node name="final1" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_ecafv")
+volume_db = 8.914
 
 [node name="final2" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_8x83e")
+volume_db = 17.828
 
 [connection signal="finished" from="final1" to="." method="_on_final_1_finished"]
 [connection signal="finished" from="final2" to="." method="_on_final_2_finished"]
