@@ -211,11 +211,11 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cjv0h"]
-radius = 24.0072
-height = 98.0288
+radius = 19.9994
+height = 89.9971
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6dhws"]
-size = Vector2(179, 176)
+size = Vector2(110, 111)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5rm4b"]
 radius = 658.0
@@ -228,20 +228,19 @@ projectile_scene = ExtResource("2_cqw8v")
 position = Vector2(6, -15)
 scale = Vector2(1.63867, 1.63867)
 sprite_frames = SubResource("SpriteFrames_cjing")
-animation = &"idle"
-frame_progress = 0.928598
+animation = &"shoot"
 
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="collision" type="CollisionShape2D" parent="."]
-position = Vector2(4, 16)
+position = Vector2(1, 22)
 rotation = 1.57877
 shape = SubResource("CapsuleShape2D_cjv0h")
 
 [node name="hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-position = Vector2(0.5, -58)
+position = Vector2(1, -8.5)
 shape = SubResource("RectangleShape2D_6dhws")
 
 [node name="PlayerDetectionArea" type="Area2D" parent="."]

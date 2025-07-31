@@ -14,9 +14,15 @@ extends CharacterBody2D
 
 @onready var eject = $eject
 
+@export var vida_maxima := 6
+var vida_atual: int
+
 var morto := false
 var player: Node2D = null
 var pode_atirar := true
+
+func _ready():
+	vida_atual = vida_maxima
 
 func _physics_process(delta):
 	if morto:
@@ -44,6 +50,9 @@ func _physics_process(delta):
 		anim.flip_h = direcao.x < 0
 		anim.play("run")
 
+	if vida_atual == 0:
+		morrer()
+
 func atirar():
 	if not pode_atirar or projectile_scene == null or player == null:
 		return
@@ -60,6 +69,8 @@ func atirar():
 	await get_tree().create_timer(0.8).timeout
 	pode_atirar = true
 
+func dano():
+	vida_atual -= 1
 
 func morrer():
 	if morto:

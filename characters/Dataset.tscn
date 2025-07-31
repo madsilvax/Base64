@@ -196,7 +196,7 @@ shape = SubResource("CapsuleShape2D_fs3bf")
 position = Vector2(0, -15)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-position = Vector2(-3.5, -4.5)
+position = Vector2(-3.5, 8)
 shape = SubResource("RectangleShape2D_5rxhj")
 
 [node name="PlayerDetectionArea" type="Area2D" parent="."]
@@ -215,3 +215,7 @@ stream = ExtResource("4_0q1jt")
 
 [node name="eject" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_anl71")
+
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_entered" from="PlayerDetectionArea" to="." method="_on_player_detection_area_body_entered"]
+[connection signal="body_exited" from="PlayerDetectionArea" to="." method="_on_player_detection_area_body_exited"]

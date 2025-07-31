@@ -7,6 +7,7 @@ signal change_scene(scene: String)
 var is_transitioning: bool = false  # Controla se já está em transição
 
 func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	menu_ost.volume_db= -20
 	menu_ost.play()
 	

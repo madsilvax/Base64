@@ -174,7 +174,7 @@ animations = [{
 height = 34.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_no2ld"]
-size = Vector2(32, 61)
+size = Vector2(42, 70.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cuch1"]
 radius = 521.5
@@ -199,7 +199,7 @@ shape = SubResource("CapsuleShape2D_dyauk")
 position = Vector2(0, -20.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-position = Vector2(2, 0)
+position = Vector2(2, -1.25)
 shape = SubResource("RectangleShape2D_no2ld")
 
 [node name="PlayerDetectionArea" type="Area2D" parent="."]

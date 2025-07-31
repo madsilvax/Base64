@@ -95,7 +95,7 @@ func _physics_process(delta: float) -> void:
 		reload()
 	
 	update_life()
-func dano():
+func dano_jogador():
 	vida_atual -= 10
 	
 func shoot():	

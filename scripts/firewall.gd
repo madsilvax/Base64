@@ -7,14 +7,14 @@ extends CharacterBody2D
 @export var distancia_minima := 60.0
 @export var projectile_scene: PackedScene
 
-@export var vida_maxima := 3
-var vida_atual: int
-
 @onready var anim = $AnimatedSprite2D
 @onready var death = $sfx_death
 @onready var shoot = $sfx_atirar
 @onready var music = $music_combat
 @onready var overheating = $overheating
+
+@export var vida_maxima := 2
+var vida_atual: int
 
 @onready var hitbox = $hitbox
 
@@ -25,7 +25,6 @@ var pode_atirar := true
 func _ready():
 	vida_atual = vida_maxima
 	print("Vida atual:", vida_atual)
-
 
 func _physics_process(delta):
 	if morto:
@@ -52,6 +51,10 @@ func _physics_process(delta):
 		move_and_slide()
 		anim.flip_h = direcao.x < 0
 		anim.play("run")
+	
+	if vida_atual == 0:
+		morrer()
+
 
 func atirar():
 	if not pode_atirar or projectile_scene == null or player == null:
@@ -69,6 +72,8 @@ func atirar():
 	await get_tree().create_timer(0.8).timeout
 	pode_atirar = true
 
+func dano():
+	vida_atual -= 1
 
 func morrer():
 	if morto:
@@ -84,12 +89,8 @@ func morrer():
 	
 func _on_hitbox_body_entered(body):
 	if body.is_in_group("projetil"):
-		vida_atual -= 1
-		print("Levou dano, vida restante:", vida_atual)
-		if vida_atual <= 0:
-			morrer()
 		body.queue_free()
-		
+
 func _on_player_detection_area_body_entered(body):
 	if body.is_in_group("player"):
 		overheating.play()

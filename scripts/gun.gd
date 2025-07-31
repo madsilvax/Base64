@@ -21,5 +21,5 @@ func _on_life_timer_timeout():
 	queue_free()
 
 func _on_enemy_detection_area_body_entered(body):
-	if body.has_method("morrer"):
-		body.morrer()
+	if body.has_method("dano"):
+		body.dano()

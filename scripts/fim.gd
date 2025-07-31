@@ -4,6 +4,7 @@ extends Control
 @onready var final2 = $final2
 
 func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	final1.play()
 
 func _process(delta):

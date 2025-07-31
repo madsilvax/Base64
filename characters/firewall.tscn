@@ -314,7 +314,7 @@ radius = 18.0028
 height = 53.9998
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fowc0"]
-size = Vector2(80, 51)
+size = Vector2(116, 102)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rdchy"]
 radius = 308.002
@@ -341,7 +341,7 @@ shape = SubResource("CapsuleShape2D_m3x3p")
 [node name="hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-position = Vector2(3, -3.5)
+position = Vector2(9, -23)
 shape = SubResource("RectangleShape2D_fowc0")
 
 [node name="PlayerDetectionArea" type="Area2D" parent="."]
