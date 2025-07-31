@@ -17,6 +17,10 @@ boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/image="res://assets/UI/Menu/13.png"
 config/icon="res://assets/UI/T ICON SVG-01.svg"
 
+[autoload]
+
+Global="*res://scripts/Global.gd"
+
 [display]
 
 window/size/viewport_width=1920

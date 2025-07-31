@@ -98,12 +98,13 @@ func _physics_process(delta: float) -> void:
 func dano():
 	vida_atual -= 10
 	
-func shoot():
+func shoot():	
 	if municao <= 0:
 		sfx_noammo.play()
 		return
 
 	esta_atirando = true
+	Global.tiros_do_jogador += 1
 	sprite_animado.play("atirando")
 	atirando.play()
 	municao -= 1
@@ -127,7 +128,7 @@ func shoot():
 		sprite_animado.play("padrao_baixo")
 	else:
 		sprite_animado.play("run")
-
+	
 
 func reload():
 	if esta_recarregando:
