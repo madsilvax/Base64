@@ -11,6 +11,7 @@ class_name Player
 @onready var life_sprite: Sprite2D = $"UI player/UI layer/hud/life"
 @export var projectile_scene: PackedScene
 @onready var shoot_point = $ShootPoint
+@onready var shoot_point_position_x = shoot_point.position.x
 
 # Sons
 @onready var recarregando_sfx: AudioStreamPlayer2D = $sfx_recarregar
@@ -75,8 +76,10 @@ func _physics_process(delta: float) -> void:
 		
 		if direcao.x < 0:
 			sprite_animado.flip_h = true
+			shoot_point.position.x = -shoot_point_position_x
 		elif direcao.x > 0:
 			sprite_animado.flip_h = false
+			shoot_point.position.x = shoot_point_position_x
 	else:
 		velocity = Vector2.ZERO
 		sprite_animado.play("padrao_baixo")
@@ -109,7 +112,11 @@ func shoot():
 	projectile.global_position = shoot_point.global_position
 
 	# Define direção com base na orientação do player (você pode mudar isso para mouse, se quiser)
-	var dir = Vector2.RIGHT if not sprite_animado.flip_h else Vector2.LEFT
+	var dir = Vector2.RIGHT
+	if not sprite_animado.flip_h:
+		dir = Vector2.RIGHT
+	else:
+		dir = Vector2.LEFT
 	projectile.initialize(dir)
 
 	await sprite_animado.animation_finished

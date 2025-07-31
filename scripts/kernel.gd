@@ -7,10 +7,6 @@ extends CharacterBody2D
 @export var distancia_minima := 60.0
 @export var projectile_scene: PackedScene
 
-#vida
-@export var vida_maxima := 3  
-var vida_atual := vida_maxima
-
 @onready var anim = $AnimatedSprite2D
 @onready var shoot = $sfx_atirar
 @onready var hitbox = $hitbox
@@ -61,15 +57,6 @@ func atirar():
 	await get_tree().create_timer(0.8).timeout
 	pode_atirar = true
 
-#vida
-func receber_dano(valor):
-	if morto:
-		return
-	
-	vida_atual -= valor
-	print("Inimigo tomou dano, vida atual: ", vida_atual)
-	if vida_atual <= 0:
-		morrer()
 
 func morrer():
 	if morto:
