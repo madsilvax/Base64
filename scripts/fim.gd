@@ -6,7 +6,7 @@ extends Control
 @onready var fade: ColorRect = $fade
 
 @onready var label: Label = $Label
-var texto_completo = "E é este o jeito que os computadores falam entre si"
+var texto_completo = "E este é o jeito que os computadores falam entre si"
 var velocidade_digito = 0.03 #segundos entre tela
 
 func _ready():

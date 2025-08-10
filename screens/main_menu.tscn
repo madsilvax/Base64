@@ -28,20 +28,34 @@ grow_vertical = 2
 [node name="Botôes" type="Node" parent="TextureRect"]
 
 [node name="iniciar" type="Button" parent="TextureRect/Botôes"]
-offset_left = 832.875
-offset_top = 617.25
-offset_right = 1073.88
-offset_bottom = 715.25
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.47037
+anchor_right = 0.527078
+anchor_bottom = 0.537037
+offset_left = -80.0
+offset_top = 42.0
+offset_right = 161.005
+offset_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.48, 0.44)
 theme = ExtResource("2_it3su")
-metadata/_edit_use_anchors_ = true
 
 [node name="sair" type="Button" parent="TextureRect/Botôes"]
-offset_left = 834.875
-offset_top = 773.25
-offset_right = 1074.88
-offset_bottom = 871.25
+anchors_preset = -1
+anchor_left = -0.0218802
+anchor_top = -0.0351852
+anchor_right = -0.0218802
+anchor_bottom = -0.0351852
+offset_left = 422.0
+offset_top = 397.0
+offset_right = 662.005
+offset_bottom = 495.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.533711, 0.567582)
 theme = ExtResource("3_pu4d4")
-metadata/_edit_use_anchors_ = true
 
 [node name="Menu ost" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_2t24y")
@@ -53,10 +67,13 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -4.0
-offset_bottom = 4.0
+offset_left = -18.0
+offset_top = -10.0
+offset_right = 942.0
+offset_bottom = 538.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.52, 0.52)
 stream = ExtResource("4_q3y65")
 autoplay = true
 loop = true
